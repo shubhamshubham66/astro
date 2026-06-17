@@ -43,10 +43,12 @@ body{
 .btn-fill{background:var(--maroon);color:var(--white);}
 .btn-fill:hover{background:var(--maroon-dark);}
 .about-section{padding:80px 0;}
-.about-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:start;}
-.about-image{max-width:500px;margin:0 auto;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);}
+.about-intro{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:60px;}
+.about-image{width:100%;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);}
 .about-image img{width:100%;height:auto;display:block;}
-.about-content h1{font-family:var(--ff-display);font-size:38px;color:var(--maroon);margin-bottom:20px;font-weight:800;}
+.about-intro-text h1{font-family:var(--ff-display);font-size:38px;color:var(--maroon);margin-bottom:20px;font-weight:800;}
+.about-intro-text p{font-size:16px;line-height:1.8;color:var(--ink);margin-bottom:16px;}
+.about-content{max-width:100%;}
 .about-content h2{font-family:var(--ff-display);font-size:24px;color:var(--maroon);margin-top:32px;margin-bottom:12px;font-weight:700;}
 .about-content p{font-size:16px;line-height:1.8;color:var(--ink);margin-bottom:16px;}
 .about-content ul{margin:16px 0;padding-left:24px;}
@@ -54,8 +56,8 @@ body{
 .highlight{background:linear-gradient(120deg, rgba(182,134,12,.2) 0%, rgba(182,134,12,.1) 100%);padding:24px;border-radius:var(--radius-md);border-left:4px solid var(--gold);margin:24px 0;}
 .highlight p{margin-bottom:8px;}
 @media(max-width:900px){
-  .about-content h1{font-size:30px;}
-  .about-image{max-width:100%;}
+  .about-intro{grid-template-columns:1fr;gap:40px;}
+  .about-intro-text h1{font-size:30px;}
 }
 </style>
 </head>
@@ -75,11 +77,12 @@ body{
 <!-- About Section -->
 <section class="about-section">
   <div class="container">
-    <div class="about-grid">
+    <!-- Top Section: Image + Intro -->
+    <div class="about-intro">
       <div class="about-image">
         <img src="bannerhawan.jpg" alt="Anil Ji performing Hawan">
       </div>
-      <div class="about-content">
+      <div class="about-intro-text">
         <h1>About Anil Ji</h1>
         <p>Namaskar! I am <strong>Anil Ji</strong>, a devoted practitioner of Vedic Astrology, Tantra Sadhana, and Sacred Hawan rituals for over <strong>15+ years</strong>. Guided by the divine grace of <strong>Maa Kali</strong> and <strong>Maa Baglamukhi</strong>, I have been blessed to serve thousands of devotees across India.</p>
 
@@ -92,36 +95,39 @@ body{
           <p><strong>🏠 Vastu Shastra</strong> - Harmonizing living spaces with cosmic energies for peace and prosperity</p>
           <p><strong>🔢 Numerology</strong> - Revealing hidden patterns in names and dates for better life decisions</p>
         </div>
-
-        <h2>Our Mission</h2>
-        <p>My mission is to bring authentic Vedic and Tantric wisdom to modern seekers. In today's fast-paced world, many face challenges like:</p>
-        <ul>
-          <li>Enemies, legal disputes, and court cases</li>
-          <li>Financial struggles and business obstacles</li>
-          <li>Health issues and negative energies</li>
-          <li>Relationship problems and family conflicts</li>
-          <li>Lack of spiritual direction and inner peace</li>
-        </ul>
-
-        <p>Through personalized consultations and powerful Hawan rituals performed with complete Vedic authenticity, I help devotees overcome these challenges and transform their lives.</p>
-
-        <h2>Why Choose AstroTantraHawan?</h2>
-        <p><strong>✓ 100% Authentic Rituals</strong> - All Hawans are performed strictly according to Vedic scriptures</p>
-        <p><strong>✓ Live Zoom Participation</strong> - Watch your Hawan being performed from the comfort of your home</p>
-        <p><strong>✓ Blessed Prasad Delivery</strong> - Pure and energized Prasad delivered to your doorstep</p>
-        <p><strong>✓ Personalized Guidance</strong> - One-on-one consultations tailored to your specific needs</p>
-        <p><strong>✓ 15+ Years Experience</strong> - Trusted by 1000+ devotees across India</p>
-
-        <div class="highlight">
-          <p><em>"My sole purpose is to serve the divine will and help seekers connect with the cosmic energies for protection, prosperity, and spiritual growth. Every Hawan, every consultation is performed with complete devotion and authenticity."</em></p>
-          <p style="text-align:right;margin-top:12px"><strong>- Anil Ji</strong></p>
-        </div>
-
-        <h2>Get Started Today</h2>
-        <p>Whether you're facing specific challenges or seeking spiritual growth, I am here to guide you on your journey. Book a Hawan or consultation today and experience the transformative power of authentic Vedic practices.</p>
-
-        <a href="index.html#booking-form" class="btn btn-fill" style="margin-top:24px">Book Your Consultation</a>
       </div>
+    </div>
+
+    <!-- Bottom Section: Full Width Content -->
+    <div class="about-content">
+      <h2>Our Mission</h2>
+      <p>My mission is to bring authentic Vedic and Tantric wisdom to modern seekers. In today's fast-paced world, many face challenges like:</p>
+      <ul>
+        <li>Enemies, legal disputes, and court cases</li>
+        <li>Financial struggles and business obstacles</li>
+        <li>Health issues and negative energies</li>
+        <li>Relationship problems and family conflicts</li>
+        <li>Lack of spiritual direction and inner peace</li>
+      </ul>
+
+      <p>Through personalized consultations and powerful Hawan rituals performed with complete Vedic authenticity, I help devotees overcome these challenges and transform their lives.</p>
+
+      <h2>Why Choose AstroTantraHawan?</h2>
+      <p><strong>✓ 100% Authentic Rituals</strong> - All Hawans are performed strictly according to Vedic scriptures</p>
+      <p><strong>✓ Live Zoom Participation</strong> - Watch your Hawan being performed from the comfort of your home</p>
+      <p><strong>✓ Blessed Prasad Delivery</strong> - Pure and energized Prasad delivered to your doorstep</p>
+      <p><strong>✓ Personalized Guidance</strong> - One-on-one consultations tailored to your specific needs</p>
+      <p><strong>✓ 15+ Years Experience</strong> - Trusted by 1000+ devotees across India</p>
+
+      <div class="highlight">
+        <p><em>"My sole purpose is to serve the divine will and help seekers connect with the cosmic energies for protection, prosperity, and spiritual growth. Every Hawan, every consultation is performed with complete devotion and authenticity."</em></p>
+        <p style="text-align:right;margin-top:12px"><strong>- Anil Ji</strong></p>
+      </div>
+
+      <h2>Get Started Today</h2>
+      <p>Whether you're facing specific challenges or seeking spiritual growth, I am here to guide you on your journey. Book a Hawan or consultation today and experience the transformative power of authentic Vedic practices.</p>
+
+      <a href="index.html#booking-form" class="btn btn-fill" style="margin-top:24px">Book Your Consultation</a>
     </div>
   </div>
 </section>
