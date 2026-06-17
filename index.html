@@ -505,8 +505,8 @@ footer{background:var(--black);color:#C9BFAE;padding-top:0;}
         <div class="stat-item"><span class="num">5★</span><span class="lbl">Rating &amp; Trust</span></div>
       </div>
       <div class="hero-actions">
-        <a href="#hawans" class="btn btn-fill">Book a Hawan</a>
-        <a href="#consultations" class="btn btn-outline">Book Consultation</a>
+        <a href="#booking-form" class="btn btn-fill">Book a Hawan</a>
+        <a href="#booking-form" class="btn btn-outline">Book Consultation</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -553,7 +553,7 @@ footer{background:var(--black);color:#C9BFAE;padding-top:0;}
             <h4>Maha Tantra Hawan</h4>
             <p>For Success, Protection &amp; Removing Negativity</p>
             <span class="hawan-price">₹5,100</span>
-            <a href="#" class="btn btn-fill btn-sm">Book Now</a>
+            <a href="#booking-form" class="btn btn-fill btn-sm">Book Now</a>
           </div>
         </div>
         <div class="hawan-card">
@@ -562,7 +562,7 @@ footer{background:var(--black);color:#C9BFAE;padding-top:0;}
             <h4>Lal Mirch Shatru Nashak Hawan</h4>
             <p>For Victory Over Enemies &amp; Court Cases</p>
             <span class="hawan-price">₹4,100</span>
-            <a href="#" class="btn btn-fill btn-sm">Book Now</a>
+            <a href="#booking-form" class="btn btn-fill btn-sm">Book Now</a>
           </div>
         </div>
         <div class="hawan-card">
@@ -571,7 +571,7 @@ footer{background:var(--black);color:#C9BFAE;padding-top:0;}
             <h4>Shiv Shakti Kali Hawan</h4>
             <p>For Powerful Protection &amp; Inner Strength</p>
             <span class="hawan-price">₹5,100</span>
-            <a href="#" class="btn btn-fill btn-sm">Book Now</a>
+            <a href="#booking-form" class="btn btn-fill btn-sm">Book Now</a>
           </div>
         </div>
         <div class="hawan-card">
@@ -580,7 +580,7 @@ footer{background:var(--black);color:#C9BFAE;padding-top:0;}
             <h4>Shatru Vijaya Hawan</h4>
             <p>For Victory, Power &amp; Removing Obstacles</p>
             <span class="hawan-price">₹4,100</span>
-            <a href="#" class="btn btn-fill btn-sm">Book Now</a>
+            <a href="#booking-form" class="btn btn-fill btn-sm">Book Now</a>
           </div>
         </div>
       </div>
@@ -598,7 +598,7 @@ footer{background:var(--black);color:#C9BFAE;padding-top:0;}
         <div class="consult-card"><span class="consult-icon"><svg><use href="#i-kali"/></svg></span><h4>Kali Tantra Guidance</h4></div>
         <div class="consult-card"><span class="consult-icon"><svg><use href="#i-trishul"/></svg></span><h4>Spiritual Remedies &amp; Sadhna Guidance</h4></div>
       </div>
-      <a href="#" class="btn btn-fill" style="width:100%;justify-content:center">Book Consultation Now <svg style="width:14px;height:14px"><use href="#i-arrow"/></svg></a>
+      <a href="#booking-form" class="btn btn-fill" style="width:100%;justify-content:center">Book Consultation Now <svg style="width:14px;height:14px"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
@@ -698,6 +698,71 @@ footer{background:var(--black);color:#C9BFAE;padding-top:0;}
   </div>
 </section>
 
+<!-- ============ BOOKING FORM ============ -->
+<section class="section" id="booking-form" style="background:var(--cream-2)">
+  <div class="container">
+    <div class="section-head" style="text-align:center;justify-content:center;flex-direction:column;align-items:center">
+      <h2>Book Your Hawan or Consultation</h2>
+      <p class="sub">Fill the form below and we'll contact you on WhatsApp</p>
+    </div>
+    <div style="max-width:700px;margin:0 auto;background:var(--white);border-radius:var(--radius-lg);padding:40px;box-shadow:var(--shadow-card)">
+      <form id="bookingForm">
+        <div style="display:grid;gap:20px">
+          <div>
+            <label style="display:block;font-weight:600;margin-bottom:8px;font-size:14px">Full Name *</label>
+            <input type="text" name="name" required style="width:100%;padding:12px 14px;border:1.5px solid rgba(122,20,34,.2);border-radius:var(--radius-sm);font-size:14px">
+          </div>
+          
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+            <div>
+              <label style="display:block;font-weight:600;margin-bottom:8px;font-size:14px">Email *</label>
+              <input type="email" name="email" required style="width:100%;padding:12px 14px;border:1.5px solid rgba(122,20,34,.2);border-radius:var(--radius-sm);font-size:14px">
+            </div>
+            <div>
+              <label style="display:block;font-weight:600;margin-bottom:8px;font-size:14px">Phone *</label>
+              <input type="tel" name="phone" required pattern="[0-9]{10}" style="width:100%;padding:12px 14px;border:1.5px solid rgba(122,20,34,.2);border-radius:var(--radius-sm);font-size:14px">
+            </div>
+          </div>
+
+          <div>
+            <label style="display:block;font-weight:600;margin-bottom:8px;font-size:14px">Service Type *</label>
+            <select name="service" required style="width:100%;padding:12px 14px;border:1.5px solid rgba(122,20,34,.2);border-radius:var(--radius-sm);font-size:14px;background:white">
+              <option value="">Select Service</option>
+              <option value="Maha Tantra Hawan - ₹5100">Maha Tantra Hawan - ₹5,100</option>
+              <option value="Lal Mirch Shatru Nashak Hawan - ₹4100">Lal Mirch Shatru Nashak Hawan - ₹4,100</option>
+              <option value="Shiv Shakti Kali Hawan - ₹5100">Shiv Shakti Kali Hawan - ₹5,100</option>
+              <option value="Shatru Vijaya Hawan - ₹4100">Shatru Vijaya Hawan - ₹4,100</option>
+              <option value="Vedic Astrology Consultation">Vedic Astrology Consultation</option>
+              <option value="Numerology Consultation">Numerology Consultation</option>
+              <option value="Vastu Shastra Consultation">Vastu Shastra Consultation</option>
+              <option value="Kali Tantra Guidance">Kali Tantra Guidance</option>
+              <option value="Spiritual Remedies">Spiritual Remedies & Sadhna Guidance</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display:block;font-weight:600;margin-bottom:8px;font-size:14px">Preferred Date *</label>
+            <input type="date" name="date" required style="width:100%;padding:12px 14px;border:1.5px solid rgba(122,20,34,.2);border-radius:var(--radius-sm);font-size:14px">
+          </div>
+
+          <div>
+            <label style="display:block;font-weight:600;margin-bottom:8px;font-size:14px">City *</label>
+            <input type="text" name="city" required style="width:100%;padding:12px 14px;border:1.5px solid rgba(122,20,34,.2);border-radius:var(--radius-sm);font-size:14px">
+          </div>
+
+          <div>
+            <label style="display:block;font-weight:600;margin-bottom:8px;font-size:14px">Message / Special Requirements</label>
+            <textarea name="message" rows="4" style="width:100%;padding:12px 14px;border:1.5px solid rgba(122,20,34,.2);border-radius:var(--radius-sm);font-size:14px;resize:vertical"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-fill" style="width:100%;padding:14px;font-size:15px">Submit Booking Request</button>
+          <p id="formStatus" style="text-align:center;font-size:13px;color:var(--maroon);margin-top:4px"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CTA BANNER ============ -->
 <section class="cta-banner">
   <div class="container cta-inner">
@@ -706,7 +771,7 @@ footer{background:var(--black);color:#C9BFAE;padding-top:0;}
       <p>Book Hawan, Consultation or Join Our Webinars</p>
     </div>
     <div class="cta-right">
-      <a href="#hawans" class="btn btn-gold">Book Now</a>
+      <a href="#booking-form" class="btn btn-gold">Book Now</a>
       <small>Secure • Trusted • Authentic</small>
     </div>
   </div>
@@ -865,6 +930,66 @@ document.getElementById('newsletterForm').addEventListener('submit', function(e)
   this.querySelector('input').value = '';
   setTimeout(() => { btn.textContent = original; }, 2200);
 });
+
+// Booking Form - Google Sheets Integration
+document.getElementById('bookingForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  
+  const formStatus = document.getElementById('formStatus');
+  const submitBtn = this.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.textContent;
+  
+  // Disable button and show loading
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting...';
+  formStatus.textContent = '';
+  
+  // Collect form data
+  const formData = {
+    timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+    name: this.name.value,
+    email: this.email.value,
+    phone: this.phone.value,
+    service: this.service.value,
+    date: this.date.value,
+    city: this.city.value,
+    message: this.message.value || 'N/A'
+  };
+  
+  // Google Apps Script Web App URL (you'll replace this with your actual URL)
+  const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+  
+  try {
+    // Build URL with parameters (GET request to avoid CORS)
+    const url = scriptURL + '?' + new URLSearchParams(formData).toString();
+    
+    // Send request with no-cors mode
+    await fetch(url, { mode: 'no-cors' });
+    
+    // Show success message
+    formStatus.style.color = 'var(--maroon)';
+    formStatus.textContent = '✓ Booking request submitted! We will contact you on WhatsApp soon.';
+    submitBtn.textContent = 'Submitted ✓';
+    
+    // Reset form
+    this.reset();
+    
+    // Reset button after 3 seconds
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+      formStatus.textContent = '';
+    }, 3000);
+    
+  } catch (error) {
+    // Show error message
+    formStatus.style.color = '#d32f2f';
+    formStatus.textContent = 'Error submitting form. Please try again or WhatsApp us directly.';
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalBtnText;
+  }
+});
+
 </script>
 </body>
 </html>
