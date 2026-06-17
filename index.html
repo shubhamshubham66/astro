@@ -509,14 +509,8 @@ footer{background:var(--black);color:#C9BFAE;padding-top:0;}
         <a href="#booking-form" class="btn btn-outline">Book Consultation</a>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="flame-wrap">
-        <div class="flame-glow"></div>
-        <div class="flame"></div>
-      </div>
-      <div class="diya-row">
-        <div class="diya"></div><div class="diya"></div><div class="diya"></div><div class="diya"></div><div class="diya"></div>
-      </div>
+    <div class="hero-visual" id="heroVisual">
+      <img src="bannerhawan.jpg" alt="Live Hawan" id="heroImage" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.85">
       <div class="live-badge">
         <span class="play-circle"><svg><use href="#i-play"/></svg></span>
         <span><span class="lt1" style="display:block">Watch Live Hawan</span><span class="lt2">Join Live on Zoom</span></span>
@@ -908,18 +902,26 @@ renderReview(0);
 setInterval(() => { currentReview = (currentReview + 1) % reviews.length; renderReview(currentReview); }, 5000);
 
 // Hero arrows (cosmetic crossfade between scene tints)
-const heroVisual = document.querySelector('.hero-visual');
-const scenes = [
-  'radial-gradient(circle at 70% 30%, rgba(224,169,59,.35), transparent 55%), radial-gradient(circle at 30% 80%, rgba(142,31,40,.5), transparent 60%), linear-gradient(160deg, var(--maroon-dark), var(--navy) 75%, var(--black))',
-  'radial-gradient(circle at 30% 30%, rgba(224,169,59,.4), transparent 55%), radial-gradient(circle at 70% 80%, rgba(91,16,25,.55), transparent 60%), linear-gradient(200deg, var(--navy), var(--maroon-dark) 75%, var(--black))'
-];
-let sceneIdx = 0;
-function swapScene(dir){
-  sceneIdx = (sceneIdx + dir + scenes.length) % scenes.length;
-  heroVisual.style.background = scenes[sceneIdx];
+const heroVisual = document.getElementById('heroVisual');
+const heroImage = document.getElementById('heroImage');
+const hawanImages = ['bannerhawan.jpg', 'hawanpuja.jpg', 'Ashadhahawan.jpg'];
+let imageIdx = 0;
+
+function swapImage(dir){
+  imageIdx = (imageIdx + dir + hawanImages.length) % hawanImages.length;
+  heroImage.style.opacity = '0';
+  setTimeout(() => {
+    heroImage.src = hawanImages[imageIdx];
+    heroImage.style.opacity = '0.85';
+  }, 300);
 }
-document.querySelector('.hero-arrow.left').addEventListener('click', () => swapScene(-1));
-document.querySelector('.hero-arrow.right').addEventListener('click', () => swapScene(1));
+
+heroImage.style.transition = 'opacity 0.3s ease';
+document.querySelector('.hero-arrow.left').addEventListener('click', () => swapImage(-1));
+document.querySelector('.hero-arrow.right').addEventListener('click', () => swapImage(1));
+
+// Auto-rotate images every 5 seconds
+setInterval(() => swapImage(1), 5000);
 
 // Newsletter fake-submit feedback
 document.getElementById('newsletterForm').addEventListener('submit', function(e){
