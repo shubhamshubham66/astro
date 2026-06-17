@@ -55,9 +55,16 @@ body{
 .about-content li{font-size:16px;line-height:1.8;color:var(--ink);margin-bottom:8px;}
 .highlight{background:linear-gradient(120deg, rgba(182,134,12,.2) 0%, rgba(182,134,12,.1) 100%);padding:24px;border-radius:var(--radius-md);border-left:4px solid var(--gold);margin:24px 0;}
 .highlight p{margin-bottom:8px;}
+.services-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:24px;}
+.service-box{background:var(--white);border:1.5px solid rgba(122,20,34,.12);border-radius:var(--radius-md);padding:20px 16px;text-align:center;transition:all .2s ease;}
+.service-box:hover{border-color:var(--gold);box-shadow:var(--shadow-card);}
+.service-icon{font-size:32px;margin-bottom:10px;}
+.service-title{font-weight:700;font-size:14px;color:var(--maroon);margin-bottom:6px;}
+.service-desc{font-size:12.5px;color:var(--ink-soft);line-height:1.6;}
 @media(max-width:900px){
   .about-intro{grid-template-columns:1fr;gap:40px;}
   .about-intro-text h1{font-size:30px;}
+  .services-grid{grid-template-columns:repeat(2,1fr);}
 }
 </style>
 </head>
@@ -84,17 +91,38 @@ body{
         <p>Namaskar! I am <strong>Anil Ji</strong>, a devoted practitioner of Vedic Astrology, Tantra Sadhana, and Sacred Hawan rituals for over <strong>15+ years</strong>. Guided by the divine grace of <strong>Maa Kali</strong> and <strong>Maa Baglamukhi</strong>, I have been blessed to serve thousands of devotees across India.</p>
 
         <p>My journey began with a deep spiritual calling towards understanding the cosmic energies and their impact on human life. Through years of rigorous study, practice, and guidance from revered gurus, I have mastered the ancient sciences of:</p>
-
-        <div class="highlight">
-          <p><strong>🕉️ Vedic Astrology (Jyotish Shastra)</strong> - Analyzing birth charts and planetary positions to provide accurate life guidance</p>
-          <p><strong>🔥 Sacred Hawans & Yagyas</strong> - Performing authentic Vedic fire rituals for protection, prosperity, and spiritual upliftment</p>
-          <p><strong>🙏 Tantra Sadhana</strong> - Guiding devotees in powerful Tantra practices under proper spiritual discipline</p>
-          <p><strong>🏠 Vastu Shastra</strong> - Harmonizing living spaces with cosmic energies for peace and prosperity</p>
-          <p><strong>🔢 Numerology</strong> - Revealing hidden patterns in names and dates for better life decisions</p>
-        </div>
       </div>
       <div class="about-image">
         <img src="bannerhawan.jpg" alt="Anil Ji performing Hawan">
+      </div>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="services-grid">
+      <div class="service-box">
+        <div class="service-icon">🕉️</div>
+        <div class="service-title">Vedic Astrology</div>
+        <div class="service-desc">Analyzing birth charts and planetary positions to provide accurate life guidance</div>
+      </div>
+      <div class="service-box">
+        <div class="service-icon">🔥</div>
+        <div class="service-title">Sacred Hawans & Yagyas</div>
+        <div class="service-desc">Performing authentic Vedic fire rituals for protection, prosperity, and spiritual upliftment</div>
+      </div>
+      <div class="service-box">
+        <div class="service-icon">🙏</div>
+        <div class="service-title">Tantra Sadhana</div>
+        <div class="service-desc">Guiding devotees in powerful Tantra practices under proper spiritual discipline</div>
+      </div>
+      <div class="service-box">
+        <div class="service-icon">🏠</div>
+        <div class="service-title">Vastu Shastra</div>
+        <div class="service-desc">Harmonizing living spaces with cosmic energies for peace and prosperity</div>
+      </div>
+      <div class="service-box">
+        <div class="service-icon">🔢</div>
+        <div class="service-title">Numerology</div>
+        <div class="service-desc">Revealing hidden patterns in names and dates for better life decisions</div>
       </div>
     </div>
 
