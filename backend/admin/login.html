@@ -40,6 +40,27 @@ body{
   margin-top:8px;
 }
 
+/* DEMO CREDENTIALS BOX */
+.demo-box{
+  background:#FEF3C7;
+  border:1px solid #F59E0B;
+  border-radius:8px;
+  padding:12px 16px;
+  margin-bottom:24px;
+  font-size:12px;
+}
+.demo-box strong{
+  color:#F59E0B;
+  display:block;
+  margin-bottom:8px;
+  font-size:13px;
+}
+.demo-box div{
+  margin:4px 0;
+  color:#92400E;
+  font-family:monospace;
+}
+
 /* USER TYPE TOGGLE */
 .user-type-toggle{
   display:flex;
@@ -226,6 +247,13 @@ body{
     </button>
   </div>
 
+  <!-- DEMO CREDENTIALS -->
+  <div class="demo-box" id="demoBox">
+    <strong>🔑 Demo User Credentials:</strong>
+    <div>📱 Mobile: +91 9876543210 | OTP: 123456</div>
+    <div>📧 Email: user@demo.com | Password: user123</div>
+  </div>
+
   <!-- LOGIN METHOD TABS -->
   <div class="login-tabs">
     <button class="tab-btn active" onclick="switchTab('mobile')">📱 Mobile</button>
@@ -243,7 +271,7 @@ body{
             <option value="+1">🇺🇸 +1</option>
             <option value="+44">🇬🇧 +44</option>
           </select>
-          <input type="tel" class="form-input" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" required>
+          <input type="tel" class="form-input" id="mobileInput" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" required>
         </div>
         <div class="otp-note">
           <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -251,7 +279,12 @@ body{
         </div>
       </div>
 
-      <button type="submit" class="btn-primary">Send OTP</button>
+      <div class="form-group" id="otpGroup" style="display:none;">
+        <label class="form-label">Enter OTP</label>
+        <input type="text" class="form-input" id="otpInput" placeholder="Enter 6-digit OTP" maxlength="6">
+      </div>
+
+      <button type="submit" class="btn-primary" id="mobileBtn">Send OTP</button>
     </form>
   </div>
 
@@ -272,12 +305,12 @@ body{
     <form onsubmit="handleEmailLogin(event)">
       <div class="form-group">
         <label class="form-label">Email Address</label>
-        <input type="email" class="form-input" placeholder="your@email.com" required>
+        <input type="email" class="form-input" id="emailInput" placeholder="your@email.com" required>
       </div>
 
       <div class="form-group">
         <label class="form-label">Password</label>
-        <input type="password" class="form-input" placeholder="Enter your password" required>
+        <input type="password" class="form-input" id="passwordInput" placeholder="Enter your password" required>
       </div>
 
       <button type="submit" class="btn-primary">Sign In</button>
@@ -292,6 +325,23 @@ body{
 
 <script>
 let currentUserType = 'user';
+let otpSent = false;
+
+// Demo credentials
+const DEMO_CREDS = {
+  user: {
+    mobile: '9876543210',
+    otp: '123456',
+    email: 'user@demo.com',
+    password: 'user123'
+  },
+  admin: {
+    mobile: '9999999999',
+    otp: '999999',
+    email: 'admin@astrotantrahawan.com',
+    password: 'admin@2025'
+  }
+};
 
 function switchUserType(type) {
   currentUserType = type;
@@ -302,6 +352,22 @@ function switchUserType(type) {
   });
   event.target.classList.add('active');
   
+  // Update demo credentials box
+  const demoBox = document.getElementById('demoBox');
+  if(type === 'admin') {
+    demoBox.innerHTML = `
+      <strong>🔑 Demo Admin Credentials:</strong>
+      <div>📱 Mobile: +91 9999999999 | OTP: 999999</div>
+      <div>📧 Email: admin@astrotantrahawan.com | Password: admin@2025</div>
+    `;
+  } else {
+    demoBox.innerHTML = `
+      <strong>🔑 Demo User Credentials:</strong>
+      <div>📱 Mobile: +91 9876543210 | OTP: 123456</div>
+      <div>📧 Email: user@demo.com | Password: user123</div>
+    `;
+  }
+  
   // Update security text
   const securityText = document.getElementById('security-text');
   if(type === 'admin') {
@@ -309,6 +375,11 @@ function switchUserType(type) {
   } else {
     securityText.textContent = 'Protected by OTP Verification';
   }
+  
+  // Reset OTP state
+  otpSent = false;
+  document.getElementById('otpGroup').style.display = 'none';
+  document.getElementById('mobileBtn').textContent = 'Send OTP';
 }
 
 function switchTab(tab) {
@@ -327,37 +398,52 @@ function switchTab(tab) {
 
 function handleMobileLogin(e) {
   e.preventDefault();
-  const mobile = e.target.querySelector('input[type="tel"]').value;
-  const countryCode = e.target.querySelector('.country-code').value;
+  const mobile = document.getElementById('mobileInput').value;
+  const countryCode = document.querySelector('.country-code').value;
+  const creds = DEMO_CREDS[currentUserType];
   
-  alert(`OTP will be sent to ${countryCode} ${mobile}\n\nUser Type: ${currentUserType.toUpperCase()}\n\nNext: OTP Verification Screen`);
-  
-  // Redirect based on user type
-  if(currentUserType === 'admin') {
-    window.location.href = 'index.html';
+  if(!otpSent) {
+    // Send OTP
+    if(mobile === creds.mobile) {
+      alert(`✅ OTP Sent to ${countryCode} ${mobile}\n\n🔑 Your OTP: ${creds.otp}\n\nEnter OTP to proceed`);
+      otpSent = true;
+      document.getElementById('otpGroup').style.display = 'block';
+      document.getElementById('mobileBtn').textContent = 'Verify OTP & Login';
+    } else {
+      alert('❌ Mobile number not registered!\n\nUse demo credentials shown above.');
+    }
   } else {
-    window.location.href = '../../index.html';
+    // Verify OTP
+    const otp = document.getElementById('otpInput').value;
+    if(otp === creds.otp) {
+      alert(`✅ OTP Verified Successfully!\n\nWelcome ${currentUserType.toUpperCase()}!`);
+      redirectUser();
+    } else {
+      alert('❌ Invalid OTP!\n\nCorrect OTP: ' + creds.otp);
+    }
   }
 }
 
 function handleGoogleLogin() {
-  alert(`Google Login initiated\n\nUser Type: ${currentUserType.toUpperCase()}\n\nIntegration: Google OAuth 2.0`);
-  
-  // Redirect based on user type
-  if(currentUserType === 'admin') {
-    window.location.href = 'index.html';
-  } else {
-    window.location.href = '../../index.html';
-  }
+  alert(`✅ Google Login Successful!\n\nUser Type: ${currentUserType.toUpperCase()}\n\n(Google OAuth integration ready)`);
+  redirectUser();
 }
 
 function handleEmailLogin(e) {
   e.preventDefault();
-  const email = e.target.querySelector('input[type="email"]').value;
+  const email = document.getElementById('emailInput').value;
+  const password = document.getElementById('passwordInput').value;
+  const creds = DEMO_CREDS[currentUserType];
   
-  alert(`Login with Email: ${email}\n\nUser Type: ${currentUserType.toUpperCase()}`);
-  
-  // Redirect based on user type
+  if(email === creds.email && password === creds.password) {
+    alert(`✅ Login Successful!\n\nWelcome ${currentUserType.toUpperCase()}!`);
+    redirectUser();
+  } else {
+    alert(`❌ Invalid Credentials!\n\nUse demo credentials:\nEmail: ${creds.email}\nPassword: ${creds.password}`);
+  }
+}
+
+function redirectUser() {
   if(currentUserType === 'admin') {
     window.location.href = 'index.html';
   } else {
