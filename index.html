@@ -346,6 +346,12 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:700;line-height:1.2;color:
   background:var(--maroon);
   color:var(--white);position:relative;overflow:hidden;
 }
+.cta-banner::before,footer::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:7px;
+  background:conic-gradient(from 45deg, var(--gold) 0 25%, transparent 0 50%);
+  background-size:14px 14px;
+}
+footer{position:relative;}
 .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:42px 0;flex-wrap:wrap;position:relative;z-index:2;}
 .cta-inner h2{color:var(--white);font-size:27px;}
 .cta-inner p{color:var(--gold-light);font-size:14px;margin-top:4px;}
