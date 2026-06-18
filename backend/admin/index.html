@@ -347,18 +347,36 @@ function loadPage(page) {
         </table>
       </div>
     `,
-
-function logout() {
-  if(confirm('Are you sure you want to logout?')) {
-    alert('Logout functionality will be connected to backend authentication.');
-  }
-}
-</script>
-
-</body>
-</html>
-
-
+    'customers': `
+      <div class="page-header">
+        <h1 class="page-title">Customer Management</h1>
+        <p class="page-subtitle">View and manage customer database</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-label">Total Customers</div><div class="stat-value">284</div><div class="stat-change up">↑ 24 new</div></div>
+        <div class="stat-card"><div class="stat-label">Active</div><div class="stat-value">198</div><div class="stat-change">This month</div></div>
+        <div class="stat-card"><div class="stat-label">Repeat</div><div class="stat-value">86</div><div class="stat-change up">30% rate</div></div>
+        <div class="stat-card"><div class="stat-label">Lifetime Value</div><div class="stat-value">₹8,245</div><div class="stat-change up">Avg per customer</div></div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Customer Directory</h3>
+          <div style="display:flex;gap:10px;">
+            <input type="text" placeholder="Search customers..." style="padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:13px;width:250px;">
+            <button class="btn-small btn-primary">Export CSV</button>
+          </div>
+        </div>
+        <table class="table">
+          <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>City</th><th>Bookings</th><th>Total Spent</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Ramesh Sharma</td><td>ramesh@example.com</td><td>+91 98765 43210</td><td>Delhi</td><td>3</td><td>₹12,700</td><td><button class="btn-small btn-primary">View</button></td></tr>
+            <tr><td>Sunita Verma</td><td>sunita@example.com</td><td>+91 98765 43211</td><td>Mumbai</td><td>2</td><td>₹8,200</td><td><button class="btn-small btn-primary">View</button></td></tr>
+            <tr><td>Vikram Joshi</td><td>vikram@example.com</td><td>+91 98765 43212</td><td>Bangalore</td><td>1</td><td>₹2,500</td><td><button class="btn-small btn-primary">View</button></td></tr>
+            <tr><td>Priya Patel</td><td>priya@example.com</td><td>+91 98765 43213</td><td>Ahmedabad</td><td>4</td><td>₹16,400</td><td><button class="btn-small btn-primary">View</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    `,
     'hawans': `
       <div class="page-header">
         <h1 class="page-title">Hawan Management</h1>
@@ -630,3 +648,14 @@ function logout() {
   
   content.innerHTML = modules[page] || '<div style="padding:40px;text-align:center;"><h2>Module Not Found</h2></div>';
 }
+
+
+function logout() {
+  if(confirm('Are you sure you want to logout?')) {
+    window.location.href = 'login.html';
+  }
+}
+</script>
+
+</body>
+</html>
