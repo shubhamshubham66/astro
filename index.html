@@ -272,30 +272,44 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:700;line-height:1.2;color:
 .consult-card h4{font-family:var(--ff-body);font-weight:600;font-size:13.5px;}
 
 /* ============ TOOLS STRIP ============ */
-.tools-strip{background:linear-gradient(140deg,var(--navy),var(--navy-2));color:var(--white);position:relative;}
-.tools-strip::before,.cta-banner::before,footer::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:7px;
-  background:conic-gradient(from 45deg, var(--gold) 0 25%, transparent 0 50%);
-  background-size:14px 14px;
+.tools-section{background:var(--cream);padding:100px 0;}
+.tools-intro-banner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px;}
+.tools-intro-visual{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);height:400px;}
+.tools-intro-content h2{font-family:var(--ff-display);font-size:42px;color:var(--maroon);margin-bottom:20px;font-weight:800;}
+.tools-intro-content p{font-size:17px;color:var(--ink-soft);line-height:1.8;margin-bottom:28px;}
+.tools-grid-section{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:80px;}
+.featured-tool{grid-column:span 2;grid-row:span 2;position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:480px;cursor:pointer;transition:transform .3s;}
+.featured-tool:hover{transform:translateY(-8px);}
+.featured-tool-bg{position:absolute;inset:0;}
+.featured-tool-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg, rgba(122,20,34,.85), rgba(77,13,23,.75));}
+.featured-tool-content{position:relative;z-index:2;color:var(--white);padding:40px;display:flex;flex-direction:column;justify-content:flex-end;height:100%;}
+.tool-icon-large{font-size:64px;margin-bottom:20px;}
+.featured-tool h3{font-family:var(--ff-display);font-size:32px;font-weight:800;margin-bottom:12px;}
+.featured-tool p{font-size:16px;color:#E9DEC9;margin-bottom:24px;line-height:1.7;}
+.tool-card{position:relative;border-radius:var(--radius-md);overflow:hidden;min-height:220px;cursor:pointer;transition:all .3s;background:var(--white);border:1.5px solid rgba(122,20,34,.12);}
+.tool-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-card);border-color:var(--gold);}
+.tool-card-wide{grid-column:span 2;}
+.tool-card-tall{grid-row:span 2;}
+.tool-card-bg{position:absolute;inset:0;}
+.tool-card-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg, rgba(122,20,34,.75), rgba(77,13,23,.85));}
+.tool-card-content{position:relative;z-index:2;padding:28px;display:flex;flex-direction:column;height:100%;color:var(--white);}
+.tool-icon{font-size:36px;margin-bottom:12px;}
+.tool-card h4{font-family:var(--ff-display);font-size:18px;font-weight:700;margin-bottom:8px;}
+.tool-card p{font-size:13.5px;color:#E9DEC9;line-height:1.6;}
+.premium-report-banner{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center;background:linear-gradient(135deg, var(--cream-2), var(--white));border-radius:var(--radius-lg);padding:60px;box-shadow:var(--shadow-card);}
+.report-visual{border-radius:var(--radius-md);overflow:hidden;height:400px;}
+.report-content h3{font-family:var(--ff-display);font-size:36px;color:var(--maroon);margin-bottom:12px;font-weight:800;}
+.report-tagline{font-size:16px;color:var(--ink-soft);margin-bottom:28px;line-height:1.7;}
+.report-features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:32px;}
+.report-features li{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--ink);}
+.feature-icon{color:var(--gold);font-weight:700;font-size:18px;}
+.btn-large{padding:16px 36px;font-size:16px;}
+@media(max-width:980px){
+  .tools-intro-banner{grid-template-columns:1fr;}
+  .tools-grid-section{grid-template-columns:repeat(2,1fr);}
+  .featured-tool{grid-column:span 2;}
+  .premium-report-banner{grid-template-columns:1fr;padding:40px;}
 }
-footer{position:relative;}
-.tools-inner{display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:center;}
-@media(max-width:900px){.tools-inner{grid-template-columns:1fr;}}
-.tools-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;}
-.tools-head h3{color:var(--gold-light);font-size:18px;}
-.tools-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
-@media(max-width:700px){.tools-row{grid-template-columns:repeat(2,1fr);}}
-.tool-item{display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center;}
-.tool-icon{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(217,180,90,.25);display:flex;align-items:center;justify-content:center;transition:background .2s;}
-.tool-item:hover .tool-icon{background:rgba(217,180,90,.18);}
-.tool-icon svg{width:20px;height:20px;color:var(--gold-light);}
-.tool-item span{font-size:12px;color:#D8CFBD;}
-.tools-card{
-  background:var(--gold);color:var(--white);
-  border-radius:var(--radius-md);padding:26px;display:flex;flex-direction:column;gap:6px;
-}
-.tools-card h4{font-family:var(--ff-display);font-size:18px;}
-.tools-card p{font-size:12.5px;}
 
 /* ============ FOUR COLUMN INFO ============ */
 .info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
@@ -602,24 +616,130 @@ footer{background:var(--black);color:#C9BFAE;padding-top:0;}
 </section>
 
 <!-- ============ TOOLS STRIP ============ -->
-<section class="section tools-strip" id="tools">
+<section class="section tools-section" id="tools">
   <div class="container">
-    <div class="tools-head"><h3>Free Spiritual Tools (Try Now)</h3></div>
-    <div class="tools-inner">
-      <div class="tools-row">
-        <div class="tool-item"><span class="tool-icon"><svg><use href="#i-moon"/></svg></span><span>Free Kundli Generator</span></div>
-        <div class="tool-item"><span class="tool-icon"><svg><use href="#i-numbers"/></svg></span><span>Numerology Calculator</span></div>
-        <div class="tool-item"><span class="tool-icon"><svg><use href="#i-sun"/></svg></span><span>Daily Horoscope</span></div>
-        <div class="tool-item"><span class="tool-icon"><svg><use href="#i-calendar"/></svg></span><span>Panchang</span></div>
-        <div class="tool-item"><span class="tool-icon"><svg><use href="#i-clock"/></svg></span><span>Muhurat Finder</span></div>
-        <div class="tool-item"><span class="tool-icon"><svg><use href="#i-vastu"/></svg></span><span>Vastu Checklist</span></div>
-        <div class="tool-item"><span class="tool-icon"><svg><use href="#i-om"/></svg></span><span>Manglik Dosha Checker</span></div>
-        <div class="tool-item"><span class="tool-icon"><svg><use href="#i-star"/></svg></span><span>Rudraksha Recommender</span></div>
+    <!-- Editorial Intro Banner -->
+    <div class="tools-intro-banner">
+      <div class="tools-intro-visual">
+        <img src="hawanpuja.jpg" alt="Vedic Astrology" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg)">
       </div>
-      <div class="tools-card">
-        <h4>Get Full Kundli Report</h4>
-        <p>Unlock detailed 40+ page Kundli Report</p>
-        <a href="#" class="btn btn-gold" style="margin-top:10px;justify-content:center">Get Full Report</a>
+      <div class="tools-intro-content">
+        <h2>Free Spiritual Tools</h2>
+        <p>Explore ancient Vedic insights through powerful spiritual tools designed to guide your journey.</p>
+        <a href="#tools-grid" class="btn btn-fill">Explore Tools</a>
+      </div>
+    </div>
+
+    <!-- Tools Grid -->
+    <div class="tools-grid-section" id="tools-grid">
+      <!-- Featured Tool: Kundli Generator -->
+      <div class="featured-tool">
+        <div class="featured-tool-bg">
+          <img src="Maha Tantra Hawan.jpg" alt="Kundli Generator" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="featured-tool-content">
+          <div class="tool-icon-large">🌙</div>
+          <h3>Free Kundli Generator</h3>
+          <p>Get your complete birth chart with detailed planetary positions and predictions</p>
+          <a href="#" class="btn btn-gold">Generate Free Kundli</a>
+        </div>
+      </div>
+
+      <!-- Bento Grid Tools -->
+      <div class="tool-card tool-card-wide">
+        <div class="tool-card-bg">
+          <img src="Shiv Shakti Kali Hawan.jpg" alt="Numerology" style="width:100%;height:100%;object-fit:cover;opacity:0.3">
+        </div>
+        <div class="tool-card-content">
+          <div class="tool-icon">🔢</div>
+          <h4>Numerology Calculator</h4>
+          <p>Discover your life path number</p>
+        </div>
+      </div>
+
+      <div class="tool-card tool-card-tall">
+        <div class="tool-card-bg">
+          <img src="Shatru Vijaya Hawan.jpg" alt="Horoscope" style="width:100%;height:100%;object-fit:cover;opacity:0.3">
+        </div>
+        <div class="tool-card-content">
+          <div class="tool-icon">☀️</div>
+          <h4>Daily Horoscope</h4>
+          <p>Get today's predictions for all zodiac signs</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card-bg">
+          <img src="Lal Mirch Shatru Nashak Hawan.jpg" alt="Panchang" style="width:100%;height:100%;object-fit:cover;opacity:0.3">
+        </div>
+        <div class="tool-card-content">
+          <div class="tool-icon">📅</div>
+          <h4>Panchang</h4>
+          <p>Daily auspicious timings</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card-bg">
+          <img src="Ashadhahawan.jpg" alt="Muhurat" style="width:100%;height:100%;object-fit:cover;opacity:0.3">
+        </div>
+        <div class="tool-card-content">
+          <div class="tool-icon">⏰</div>
+          <h4>Muhurat Finder</h4>
+          <p>Find perfect timings for events</p>
+        </div>
+      </div>
+
+      <div class="tool-card tool-card-wide">
+        <div class="tool-card-bg">
+          <img src="bannerhawan.jpg" alt="Vastu" style="width:100%;height:100%;object-fit:cover;opacity:0.3">
+        </div>
+        <div class="tool-card-content">
+          <div class="tool-icon">🏠</div>
+          <h4>Vastu Checklist</h4>
+          <p>Check your home's energy alignment</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card-bg">
+          <img src="hawanpuja.jpg" alt="Manglik" style="width:100%;height:100%;object-fit:cover;opacity:0.3">
+        </div>
+        <div class="tool-card-content">
+          <div class="tool-icon">🕉️</div>
+          <h4>Manglik Dosha Checker</h4>
+          <p>Check Manglik status in your chart</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card-bg">
+          <img src="Maha Tantra Hawan.jpg" alt="Rudraksha" style="width:100%;height:100%;object-fit:cover;opacity:0.3">
+        </div>
+        <div class="tool-card-content">
+          <div class="tool-icon">⭐</div>
+          <h4>Rudraksha Recommender</h4>
+          <p>Find your perfect Rudraksha bead</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Premium Kundli Report Banner -->
+    <div class="premium-report-banner">
+      <div class="report-visual">
+        <img src="Shiv Shakti Kali Hawan.jpg" alt="Full Kundli Report" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div class="report-content">
+        <h3>Get Full Kundli Report</h3>
+        <p class="report-tagline">Unlock Detailed 40+ Page Personalized Kundli Analysis</p>
+        <ul class="report-features">
+          <li><span class="feature-icon">✓</span> Dosha Analysis</li>
+          <li><span class="feature-icon">✓</span> Career Insights</li>
+          <li><span class="feature-icon">✓</span> Marriage Guidance</li>
+          <li><span class="feature-icon">✓</span> Wealth Forecast</li>
+          <li><span class="feature-icon">✓</span> Personalized Remedies</li>
+        </ul>
+        <a href="#" class="btn btn-gold btn-large">Get Full Report</a>
       </div>
     </div>
   </div>
