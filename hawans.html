@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sacred Hawans | AstroTantraHawan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@500;600;700;800&family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cream:#FFFFFF;
+  --cream-2:#F4F1EA;
+  --ink:#221A14;
+  --ink-soft:#6B5C4C;
+  --maroon:#7A1422;
+  --maroon-dark:#4D0D17;
+  --gold:#B6860C;
+  --gold-light:#D9B45A;
+  --gold-bright:#C99A1F;
+  --black:#0B0A09;
+  --white:#FFFFFF;
+  --green-wa:#2FAE4E;
+  --radius-sm:4px;
+  --radius-md:8px;
+  --radius-lg:14px;
+  --shadow-card:0 10px 22px -16px rgba(20,8,4,.18);
+  --ff-display:'Eczar', serif;
+  --ff-body:'Hind', sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--ff-body);color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+.container{max-width:1240px;margin:0 auto;padding:0 24px;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 27px;border-radius:var(--radius-sm);font-weight:600;font-size:14.5px;transition:all .2s;}
+.btn-fill{background:var(--maroon);color:var(--white);}
+.btn-fill:hover{background:var(--maroon-dark);}
+.btn-gold{background:var(--gold);color:var(--white);}
+.btn-gold:hover{background:var(--gold-bright);}
+.topbar{background:var(--black);color:#E9DEC9;font-size:12.5px;padding:8px 0;}
+.topbar .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.mantra{font-family:var(--ff-display);font-style:italic;color:var(--gold-light);font-size:13px;font-weight:700;}
+.topbar-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.topbar-link{display:inline-flex;align-items:center;gap:6px;font-weight:600;}
+.navbar{background:var(--cream);border-bottom:1px solid rgba(122,20,34,.14);padding:16px 0;position:sticky;top:0;z-index:50;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;}
+.brand{display:flex;flex-direction:column;line-height:1.05;}
+.brand-name{font-family:var(--ff-display);font-weight:800;font-size:24px;color:var(--maroon);}
+.brand-name .accent{color:var(--gold);}
+.brand-tag{font-size:10.5px;letter-spacing:.06em;color:var(--ink-soft);margin-top:2px;font-weight:600;}
+.nav-links{display:flex;align-items:center;gap:30px;}
+.nav-links a{font-size:14.5px;font-weight:500;padding:6px 0;}
+.nav-links a:hover,.nav-links a.active{color:var(--maroon);}
+.hero{position:relative;min-height:75vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg, rgba(122,20,34,.85), rgba(77,13,23,.75));z-index:1;}
+.hero-bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;}
+.hero-content{position:relative;z-index:2;text-align:center;color:var(--white);max-width:900px;padding:60px 24px;}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--gold-light);margin-bottom:16px;}
+.hero h1{font-family:var(--ff-display);font-size:52px;font-weight:800;color:var(--white);margin-bottom:20px;line-height:1.15;}
+.hero p{font-size:18px;color:#E9DEC9;margin-bottom:32px;line-height:1.7;}
+.trust-stats{display:flex;gap:40px;justify-content:center;margin-top:40px;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat-num{font-family:var(--ff-display);font-size:28px;font-weight:700;color:var(--gold-light);}
+.stat-lbl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#D8CFBD;margin-top:4px;}
+.hero-actions{display:flex;gap:16px;justify-content:center;margin-top:32px;}
+.section{padding:80px 0;}
+.section-head{text-align:center;margin-bottom:50px;}
+.section-head h2{font-family:var(--ff-display);font-size:38px;color:var(--maroon);margin-bottom:12px;font-weight:800;}
+.section-head p{font-size:16px;color:var(--ink-soft);}
+.featured-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;}
+.featured-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);transition:all .3s;}
+.featured-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(20,8,4,.15);}
+.featured-img{height:280px;overflow:hidden;position:relative;}
+.featured-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.featured-card:hover .featured-img img{transform:scale(1.08);}
+.featured-body{padding:30px;}
+.featured-title{font-family:var(--ff-display);font-size:22px;color:var(--maroon);margin-bottom:10px;font-weight:700;}
+.featured-desc{font-size:14.5px;color:var(--ink-soft);margin-bottom:16px;line-height:1.7;}
+.featured-price{font-family:var(--ff-display);font-size:28px;color:var(--gold);font-weight:800;margin-bottom:16px;}
+.hawans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+.hawan-card{background:var(--white);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-card);transition:all .3s;}
+.hawan-card:hover{transform:translateY(-6px);box-shadow:0 16px 32px rgba(20,8,4,.12);}
+.hawan-img{height:180px;overflow:hidden;}
+.hawan-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.hawan-card:hover .hawan-img img{transform:scale(1.1);}
+.hawan-body{padding:20px;}
+.hawan-title{font-family:var(--ff-display);font-size:16px;color:var(--maroon);margin-bottom:8px;font-weight:700;}
+.hawan-purpose{font-size:12.5px;color:var(--ink-soft);margin-bottom:12px;}
+.hawan-price{font-family:var(--ff-display);font-size:20px;color:var(--gold);font-weight:700;margin-bottom:12px;}
+.why-section{background:var(--cream-2);}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.why-img{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);}
+.why-img img{width:100%;height:auto;}
+.why-content h2{font-family:var(--ff-display);font-size:38px;color:var(--maroon);margin-bottom:24px;font-weight:800;}
+.benefits-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:32px;}
+.benefit-item{display:flex;align-items:center;gap:12px;padding:16px;background:var(--white);border-radius:var(--radius-sm);transition:all .2s;}
+.benefit-item:hover{background:linear-gradient(120deg, rgba(182,134,12,.08), rgba(182,134,12,.05));}
+.benefit-icon{font-size:24px;}
+.benefit-text{font-size:15px;font-weight:600;color:var(--ink);}
+.timeline{display:flex;gap:24px;justify-content:space-between;position:relative;padding:40px 0;}
+.timeline::before{content:'';position:absolute;top:80px;left:10%;right:10%;height:2px;background:linear-gradient(90deg, var(--gold), var(--maroon));z-index:0;}
+.timeline-step{flex:1;text-align:center;position:relative;z-index:1;}
+.step-num{width:60px;height:60px;border-radius:50%;background:var(--maroon);color:var(--white);font-family:var(--ff-display);font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 4px 12px rgba(122,20,34,.3);}
+.step-title{font-weight:700;font-size:15px;color:var(--maroon);margin-bottom:8px;}
+.step-desc{font-size:13px;color:var(--ink-soft);}
+.zoom-section{background:var(--cream-2);}
+.zoom-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.zoom-img{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);}
+.zoom-img img{width:100%;height:auto;}
+.trust-points{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:32px;}
+.trust-item{display:flex;align-items:start;gap:12px;padding:16px;background:var(--white);border-radius:var(--radius-sm);}
+.trust-icon{font-size:20px;margin-top:2px;}
+.trust-text{font-size:14px;font-weight:600;color:var(--ink);}
+.benefits-showcase{background:var(--cream-2);}
+.benefit-row{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px;}
+.benefit-row:nth-child(even){direction:rtl;}
+.benefit-row:nth-child(even) > *{direction:ltr;}
+.benefit-img{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);}
+.benefit-img img{width:100%;height:auto;}
+.benefit-content h3{font-family:var(--ff-display);font-size:28px;color:var(--maroon);margin-bottom:16px;font-weight:700;}
+.benefit-content p{font-size:15px;color:var(--ink-soft);line-height:1.8;}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.gallery-item{position:relative;overflow:hidden;border-radius:var(--radius-md);cursor:pointer;height:240px;}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.gallery-item:hover img{transform:scale(1.1);}
+.gallery-item:nth-child(1),.gallery-item:nth-child(6){grid-column:span 2;height:320px;}
+.faq-list{max-width:900px;margin:0 auto;}
+.faq-item{background:var(--white);border-radius:var(--radius-md);margin-bottom:16px;overflow:hidden;box-shadow:var(--shadow-card);}
+.faq-question{padding:24px 30px;font-size:17px;font-weight:700;color:var(--maroon);cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.faq-question:hover{background:var(--cream-2);}
+.faq-icon{font-size:20px;transition:transform .3s;}
+.faq-item.open .faq-icon{transform:rotate(180deg);}
+.faq-answer{padding:0 30px;max-height:0;overflow:hidden;transition:all .3s;}
+.faq-item.open .faq-answer{padding:0 30px 24px;max-height:500px;}
+.faq-answer p{font-size:15px;color:var(--ink-soft);line-height:1.8;}
+.final-cta{position:relative;min-height:400px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--maroon-dark);}
+.final-cta::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L30 60 M0 30 L60 30' stroke='%23B6860C' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E");opacity:.3;}
+.final-cta-content{position:relative;z-index:2;text-align:center;color:var(--white);padding:60px 24px;}
+.final-cta h2{font-family:var(--ff-display);font-size:42px;font-weight:800;margin-bottom:16px;}
+.final-cta p{font-size:18px;color:#E9DEC9;margin-bottom:32px;}
+.final-cta-actions{display:flex;gap:16px;justify-content:center;margin-bottom:24px;}
+.trust-line{font-size:13px;color:var(--gold-light);letter-spacing:.08em;}
+footer{background:var(--black);color:#C9BFAE;padding:48px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:32px;}
+.footer-col h5{color:var(--gold-light);font-size:14px;font-weight:600;margin-bottom:16px;}
+.footer-links{display:flex;flex-direction:column;gap:10px;font-size:13px;}
+.footer-links a:hover{color:var(--gold-light);}
+.footer-bottom{text-align:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:#8A8071;}
+@media(max-width:980px){
+  .featured-grid,.hawans-grid,.why-grid,.zoom-grid,.benefit-row{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .timeline{flex-direction:column;}
+  .timeline::before{display:none;}
+  .hero h1{font-size:36px;}
+  .section-head h2{font-size:30px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <span class="mantra">‖ Om Kreem Kalikayei Namah ‖</span>
+    <div class="topbar-right">
+      <a href="#" class="topbar-link" style="color:var(--green-wa)">WhatsApp Us</a>
+      <a href="tel:+919876543210" class="topbar-link">+91 98765 43210</a>
+      <a href="#hawans" class="btn btn-fill">Book Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-name">AstroTantra<span class="accent">Hawan</span></span>
+      <span class="brand-tag">Vedic Astrology • Sacred Hawans • Tantra Guidance</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="hawans.html" class="active">Hawans</a>
+      <a href="index.html#consultations">Consultations</a>
+      <a href="index.html#tools">Free Tools</a>
+      <a href="index.html#webinars">Webinars</a>
+      <a href="index.html#pdfs">Sadhna PDFs</a>
+      <a href="index.html#blog">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<!-- SECTION 1: HERO -->
+<section class="hero">
+  <img src="bannerhawan.jpg" alt="Sacred Hawan" class="hero-bg">
+  <div class="hero-content">
+    <div class="eyebrow">AUTHENTIC VEDIC FIRE RITUALS</div>
+    <h1>Sacred Hawans for Protection,<br>Prosperity & Spiritual Growth</h1>
+    <p>Experience powerful Vedic rituals performed by Pandit Anil Ji with complete authenticity and live Zoom participation.</p>
+    <div class="trust-stats">
+      <div class="stat"><div class="stat-num">15+</div><div class="stat-lbl">Years Experience</div></div>
+      <div class="stat"><div class="stat-num">1000+</div><div class="stat-lbl">Devotees Served</div></div>
+      <div class="stat"><div class="stat-num">PAN India</div><div class="stat-lbl">Service</div></div>
+      <div class="stat"><div class="stat-num">Global</div><div class="stat-lbl">International Clients</div></div>
+    </div>
+    <div class="hero-actions">
+      <a href="#featured" class="btn btn-fill">Book Hawan</a>
+      <a href="https://wa.me/919876543210" class="btn btn-gold">WhatsApp Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: FEATURED HAWANS -->
+<section class="section" id="featured">
+  <div class="container">
+    <div class="section-head">
+      <h2>Featured Sacred Hawans</h2>
+      <p>Powerful Vedic fire rituals performed with complete authenticity</p>
+    </div>
+    <div class="featured-grid">
+      <div class="featured-card">
+        <div class="featured-img"><img src="Maha Tantra Hawan.jpg" alt="Maha Tantra Hawan"></div>
+        <div class="featured-body">
+          <h3 class="featured-title">Maha Tantra Hawan</h3>
+          <p class="featured-desc">For Success, Protection & Removing Negativity</p>
+          <div class="featured-price">₹5,100</div>
+          <a href="index.html#booking-form" class="btn btn-fill" style="width:100%;justify-content:center">Book Now</a>
+        </div>
+      </div>
+      <div class="featured-card">
+        <div class="featured-img"><img src="Lal Mirch Shatru Nashak Hawan.jpg" alt="Lal Mirch Shatru Nashak Hawan"></div>
+        <div class="featured-body">
+          <h3 class="featured-title">Lal Mirch Shatru Nashak Hawan</h3>
+          <p class="featured-desc">For Victory Over Enemies & Court Cases</p>
+          <div class="featured-price">₹4,100</div>
+          <a href="index.html#booking-form" class="btn btn-fill" style="width:100%;justify-content:center">Book Now</a>
+        </div>
+      </div>
+      <div class="featured-card">
+        <div class="featured-img"><img src="Shiv Shakti Kali Hawan.jpg" alt="Shiv Shakti Kali Hawan"></div>
+        <div class="featured-body">
+          <h3 class="featured-title">Shiv Shakti Kali Hawan</h3>
+          <p class="featured-desc">For Powerful Protection & Inner Strength</p>
+          <div class="featured-price">₹5,100</div>
+          <a href="index.html#booking-form" class="btn btn-fill" style="width:100%;justify-content:center">Book Now</a>
+        </div>
+      </div>
+      <div class="featured-card">
+        <div class="featured-img"><img src="Shatru Vijaya Hawan.jpg" alt="Shatru Vijaya Hawan"></div>
+        <div class="featured-body">
+          <h3 class="featured-title">Shatru Vijaya Hawan</h3>
+          <p class="featured-desc">For Victory, Power & Removing Obstacles</p>
+          <div class="featured-price">₹4,100</div>
+          <a href="index.html#booking-form" class="btn btn-fill" style="width:100%;justify-content:center">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: ALL HAWANS COLLECTION -->
+<section class="section" style="background:var(--cream-2)" id="all-hawans">
+  <div class="container">
+    <div class="section-head">
+      <h2>All Sacred Hawans Collection</h2>
+      <p>Choose the perfect ritual for your spiritual needs</p>
+    </div>
+    <div class="hawans-grid">
+      <div class="hawan-card">
+        <div class="hawan-img"><img src="Maha Tantra Hawan.jpg" alt="Maha Tantra Hawan"></div>
+        <div class="hawan-body">
+          <h4 class="hawan-title">Maha Tantra Hawan</h4>
+          <p class="hawan-purpose">Success & Protection</p>
+          <div class="hawan-price">₹5,100</div>
+          <a href="index.html#booking-form" class="btn btn-fill" style="width:100%;font-size:13px;padding:10px">Book Now</a>
+        </div>
+      </div>
+      <div class="hawan-card">
+        <div class="hawan-img"><img src="Lal Mirch Shatru Nashak Hawan.jpg" alt="Lal Mirch Shatru Nashak Hawan"></div>
+        <div class="hawan-body">
+          <h4 class="hawan-title">Lal Mirch Shatru Nashak</h4>
+          <p class="hawan-purpose">Victory Over Enemies</p>
+          <div class="hawan-price">₹4,100</div>
+          <a href="index.html#booking-form" class="btn btn-fill" style="width:100%;font-size:13px;padding:10px">Book Now</a>
+        </div>
+      </div>
+      <div class="hawan-card">
+        <div class="hawan-img"><img src="Shiv Shakti Kali Hawan.jpg" alt="Shiv Shakti Kali Hawan"></div>
+        <div class="hawan-body">
+          <h4 class="hawan-title">Shiv Shakti Kali Hawan</h4>
+          <p class="hawan-purpose">Protection & Strength</p>
+          <div class="hawan-price">₹5,100</div>
+          <a href="index.html#booking-form" class="btn btn-fill" style="width:100%;font-size:13px;padding:10px">Book Now</a>
+        </div>
+      </div>
+      <div class="hawan-card">
+        <div class="hawan-img"><img src="Shatru Vijaya Hawan.jpg" alt="Shatru Vijaya Hawan"></div>
+        <div class="hawan-body">
+          <h4 class="hawan-title">Shatru Vijaya Hawan</h4>
+          <p class="hawan-purpose">Victory & Power</p>
+          <div class="hawan-price">₹4,100</div>
+          <a href="index.html#booking-form" class="btn btn-fill" style="width:100%;font-size:13px;padding:10px">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: WHY PERFORM A HAWAN -->
+<section class="section why-section">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-img"><img src="hawanpuja.jpg" alt="Sacred Fire Ritual"></div>
+      <div class="why-content">
+        <h2>Why Perform a Hawan?</h2>
+        <p style="margin-bottom:24px;font-size:15px;color:var(--ink-soft)">Sacred fire rituals that transform lives through divine blessings and cosmic energies.</p>
+        <div class="benefits-grid">
+          <div class="benefit-item"><span class="benefit-icon">🛡️</span><span class="benefit-text">Protection from Negativity</span></div>
+          <div class="benefit-item"><span class="benefit-icon">⚖️</span><span class="benefit-text">Court Case Relief</span></div>
+          <div class="benefit-item"><span class="benefit-icon">🙏</span><span class="benefit-text">Spiritual Growth</span></div>
+          <div class="benefit-item"><span class="benefit-icon">💰</span><span class="benefit-text">Prosperity</span></div>
+          <div class="benefit-item"><span class="benefit-icon">✨</span><span class="benefit-text">Energy Cleansing</span></div>
+          <div class="benefit-item"><span class="benefit-icon">👨‍👩‍👧</span><span class="benefit-text">Family Harmony</span></div>
+          <div class="benefit-item"><span class="benefit-icon">🕉️</span><span class="benefit-text">Divine Blessings</span></div>
+          <div class="benefit-item"><span class="benefit-icon">🚀</span><span class="benefit-text">Obstacle Removal</span></div>
+        </div>
+        <a href="https://wa.me/919876543210" class="btn btn-fill">Talk To Pandit Ji</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: HOW HAWAN WORKS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>How Hawan Works</h2>
+      <p>Simple steps to participate in sacred Vedic rituals</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Choose Hawan</div>
+        <div class="step-desc">Select the ritual that matches your needs</div>
+      </div>
+      <div class="timeline-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Book Online</div>
+        <div class="step-desc">Fill the booking form with your details</div>
+      </div>
+      <div class="timeline-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Share Details</div>
+        <div class="step-desc">Provide your Sankalp & personal info</div>
+      </div>
+      <div class="timeline-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Ritual Preparation</div>
+        <div class="step-desc">We prepare everything as per Vedic scriptures</div>
+      </div>
+      <div class="timeline-step">
+        <div class="step-num">05</div>
+        <div class="step-title">Live Zoom Participation</div>
+        <div class="step-desc">Watch the ritual live from anywhere</div>
+      </div>
+      <div class="timeline-step">
+        <div class="step-num">06</div>
+        <div class="step-title">Receive Blessings & Prasad</div>
+        <div class="step-desc">Prasad delivered to your doorstep</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: LIVE ZOOM PARTICIPATION -->
+<section class="section zoom-section">
+  <div class="container">
+    <div class="zoom-grid">
+      <div class="zoom-img"><img src="Ashadhahawan.jpg" alt="Live Zoom Participation"></div>
+      <div>
+        <h2 style="font-family:var(--ff-display);font-size:38px;color:var(--maroon);margin-bottom:20px;font-weight:800">Live Zoom Participation</h2>
+        <p style="margin-bottom:24px;font-size:15px;color:var(--ink-soft)">Experience the complete ritual from the comfort of your home. Watch every step live and receive divine blessings in real-time.</p>
+        <div class="trust-points">
+          <div class="trust-item"><span class="trust-icon">📹</span><span class="trust-text">Watch Ritual Live</span></div>
+          <div class="trust-item"><span class="trust-icon">🔐</span><span class="trust-text">OTP Verified Booking</span></div>
+          <div class="trust-item"><span class="trust-icon">💬</span><span class="trust-text">WhatsApp Updates</span></div>
+          <div class="trust-item"><span class="trust-icon">💳</span><span class="trust-text">Secure Payment</span></div>
+          <div class="trust-item"><span class="trust-icon">🌍</span><span class="trust-text">International Participation</span></div>
+          <div class="trust-item"><span class="trust-icon">🙏</span><span class="trust-text">Personalized Sankalp</span></div>
+        </div>
+        <a href="index.html#booking-form" class="btn btn-fill">Join Upcoming Ritual</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: BENEFITS SHOWCASE -->
+<section class="section benefits-showcase">
+  <div class="container">
+    <div class="section-head">
+      <h2>Transformation Journey</h2>
+      <p>Real-life benefits experienced by our devotees</p>
+    </div>
+    <div class="benefit-row">
+      <div class="benefit-img"><img src="Maha Tantra Hawan.jpg" alt="Career Growth"></div>
+      <div class="benefit-content">
+        <h3>Career Growth</h3>
+        <p>Remove obstacles in your professional life. Achieve promotions, business success, and financial stability through powerful Vedic rituals that clear negative energies blocking your progress.</p>
+      </div>
+    </div>
+    <div class="benefit-row">
+      <div class="benefit-img"><img src="Shiv Shakti Kali Hawan.jpg" alt="Protection"></div>
+      <div class="benefit-content">
+        <h3>Protection</h3>
+        <p>Shield yourself and your family from negative energies, evil eye, and harmful influences. Experience divine protection through authentic Tantra Hawan rituals performed with complete devotion.</p>
+      </div>
+    </div>
+    <div class="benefit-row">
+      <div class="benefit-img"><img src="Shatru Vijaya Hawan.jpg" alt="Marriage Harmony"></div>
+      <div class="benefit-content">
+        <h3>Marriage Harmony</h3>
+        <p>Restore peace and love in relationships. Resolve conflicts, improve understanding, and strengthen the bond with your partner through sacred fire rituals blessed by divine energies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: GALLERY -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Sacred Ritual Gallery</h2>
+      <p>Authentic Vedic ceremonies performed with complete devotion</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="bannerhawan.jpg" alt="Sacred Fire"></div>
+      <div class="gallery-item"><img src="hawanpuja.jpg" alt="Hawan Kund"></div>
+      <div class="gallery-item"><img src="Maha Tantra Hawan.jpg" alt="Maha Tantra Hawan"></div>
+      <div class="gallery-item"><img src="Lal Mirch Shatru Nashak Hawan.jpg" alt="Lal Mirch Hawan"></div>
+      <div class="gallery-item"><img src="Shiv Shakti Kali Hawan.jpg" alt="Kali Hawan"></div>
+      <div class="gallery-item"><img src="Ashadhahawan.jpg" alt="Live Zoom Ritual"></div>
+      <div class="gallery-item"><img src="Shatru Vijaya Hawan.jpg" alt="Shatru Vijaya"></div>
+      <div class="gallery-item"><img src="Ashadhahawan.jpg" alt="Prasad Distribution"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: FAQ -->
+<section class="section" style="background:var(--cream-2)">
+  <div class="container">
+    <div class="section-head">
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about our Hawan services</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">How does online Hawan work?<span class="faq-icon">▼</span></div>
+        <div class="faq-answer"><p>You book the Hawan online, we perform it at our sacred Hawan Kund, and you participate live via Zoom. You can watch the entire ritual, receive personalized Sankalp blessings, and get Prasad delivered to your home.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Can I join from abroad?<span class="faq-icon">▼</span></div>
+        <div class="faq-answer"><p>Yes! Our Hawans are accessible globally. We have devotees participating from USA, UK, Canada, Australia, and many other countries via Zoom.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How is Prasad delivered?<span class="faq-icon">▼</span></div>
+        <div class="faq-answer"><p>After the ritual, blessed Prasad is carefully packaged and delivered to your address within 3-5 days across India. International delivery takes 7-10 days.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How long does the ritual take?<span class="faq-icon">▼</span></div>
+        <div class="faq-answer"><p>Most Hawans take 45-90 minutes depending on the complexity of the ritual. You'll receive the exact timing when booking.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Can family members participate?<span class="faq-icon">▼</span></div>
+        <div class="faq-answer"><p>Yes! All family members can join the Zoom session and receive blessings together. We encourage family participation for maximum spiritual benefits.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How do I book a Hawan?<span class="faq-icon">▼</span></div>
+        <div class="faq-answer"><p>Simply click "Book Now" on any Hawan card, fill the booking form with your details, and our team will contact you on WhatsApp within 24 hours to confirm.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Are Zoom links shared on WhatsApp?<span class="faq-icon">▼</span></div>
+        <div class="faq-answer"><p>Yes! Once your booking is confirmed and payment is received, you'll get the Zoom link, ritual date, and time via WhatsApp 24-48 hours before the Hawan.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 10: FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-content container">
+    <h2>Begin Your Spiritual Transformation Today</h2>
+    <p>Book your Hawan and participate live from anywhere in the world.</p>
+    <div class="final-cta-actions">
+      <a href="index.html#booking-form" class="btn btn-fill">Book Hawan</a>
+      <a href="https://wa.me/919876543210" class="btn btn-gold">WhatsApp Now</a>
+    </div>
+    <div class="trust-line">Secure • Authentic • Trusted</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h5>About Us</h5>
+        <p style="font-size:13px;line-height:1.7;margin-top:12px;color:#A99E8C">Guided by Maa Kali and Maa Baglamukhi Divine Grace. Serving Devotees across India with Authentic Vedic & Tantric Guidance.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <div class="footer-links">
+          <a href="about.html">About Anil Ji</a>
+          <a href="hawans.html">Our Hawans</a>
+          <a href="index.html#consultations">Consultations</a>
+          <a href="index.html#tools">Free Tools</a>
+          <a href="index.html#webinars">Webinars</a>
+          <a href="index.html#pdfs">Sadhna PDFs</a>
+          <a href="index.html#blog">Blog</a>
+        </div>
+      </div>
+      <div>
+        <h5>Important Links</h5>
+        <div class="footer-links">
+          <a href="#">How It Works</a>
+          <a href="#">Shipping & Delivery</a>
+          <a href="#">Refund Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <div class="footer-links">
+          <a href="tel:+919876543210">+91 98765 43210</a>
+          <a href="https://wa.me/919876543210">WhatsApp Support</a>
+          <a href="mailto:support@astrotantrahawan.com">support@astrotantrahawan.com</a>
+          <a>Gurugram, Haryana, India</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 AstroTantraHawan. All Rights Reserved. • Made with ❤ for Devotees
+    </div>
+  </div>
+</footer>
+
+<script>
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const href = a.getAttribute('href');
+    if (href.includes('#')) {
+      const target = document.querySelector(href.split('#')[1] ? '#' + href.split('#')[1] : 'body');
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>
