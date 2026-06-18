@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spiritual Consultations | AstroTantraHawan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@500;600;700;800&family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cream:#FFFFFF;
+  --cream-2:#F4F1EA;
+  --ink:#221A14;
+  --ink-soft:#6B5C4C;
+  --maroon:#7A1422;
+  --maroon-dark:#4D0D17;
+  --gold:#B6860C;
+  --gold-light:#D9B45A;
+  --gold-bright:#C99A1F;
+  --black:#0B0A09;
+  --white:#FFFFFF;
+  --green-wa:#2FAE4E;
+  --radius-sm:4px;
+  --radius-md:8px;
+  --radius-lg:14px;
+  --shadow-card:0 10px 22px -16px rgba(20,8,4,.18);
+  --ff-display:'Eczar', serif;
+  --ff-body:'Hind', sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--ff-body);color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+.container{max-width:1240px;margin:0 auto;padding:0 24px;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 27px;border-radius:var(--radius-sm);font-weight:600;font-size:14.5px;transition:all .2s;}
+.btn-fill{background:var(--maroon);color:var(--white);}
+.btn-fill:hover{background:var(--maroon-dark);}
+.btn-gold{background:var(--gold);color:var(--white);}
+.btn-gold:hover{background:var(--gold-bright);}
+.topbar{background:var(--black);color:#E9DEC9;font-size:12.5px;padding:8px 0;}
+.topbar .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.mantra{font-family:var(--ff-display);font-style:italic;color:var(--gold-light);font-size:13px;font-weight:700;}
+.topbar-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.topbar-link{display:inline-flex;align-items:center;gap:6px;font-weight:600;}
+.navbar{background:var(--cream);border-bottom:1px solid rgba(122,20,34,.14);padding:16px 0;position:sticky;top:0;z-index:50;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;}
+.brand{display:flex;flex-direction:column;line-height:1.05;}
+.brand-name{font-family:var(--ff-display);font-weight:800;font-size:24px;color:var(--maroon);}
+.brand-name .accent{color:var(--gold);}
+.brand-tag{font-size:10.5px;letter-spacing:.06em;color:var(--ink-soft);margin-top:2px;font-weight:600;}
+.nav-links{display:flex;align-items:center;gap:30px;}
+.nav-links a{font-size:14.5px;font-weight:500;padding:6px 0;}
+.nav-links a:hover,.nav-links a.active{color:var(--maroon);}
+.hero{position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg, rgba(122,20,34,.88), rgba(77,13,23,.80));z-index:1;}
+.hero-bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;}
+.hero-content{position:relative;z-index:2;text-align:center;color:var(--white);max-width:900px;padding:60px 24px;}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--gold-light);margin-bottom:16px;}
+.hero h1{font-family:var(--ff-display);font-size:52px;font-weight:800;color:var(--white);margin-bottom:20px;line-height:1.15;}
+.hero p{font-size:18px;color:#E9DEC9;margin-bottom:32px;line-height:1.7;}
+.hero-actions{display:flex;gap:16px;justify-content:center;margin-top:32px;}
+.section{padding:100px 0;}
+.featured-consultation{position:relative;min-height:500px;border-radius:var(--radius-lg);overflow:hidden;margin-bottom:100px;}
+.featured-consultation::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg, rgba(122,20,34,.75), rgba(77,13,23,.85));z-index:1;}
+.featured-bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;}
+.featured-content{position:relative;z-index:2;color:var(--white);padding:60px;display:flex;flex-direction:column;justify-content:flex-end;min-height:500px;}
+.featured-badge{display:inline-block;background:var(--gold);color:var(--white);padding:8px 20px;border-radius:20px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:20px;align-self:flex-start;}
+.featured-content h2{font-family:var(--ff-display);font-size:42px;font-weight:800;margin-bottom:16px;}
+.featured-content p{font-size:17px;color:#E9DEC9;margin-bottom:24px;max-width:600px;line-height:1.8;}
+.consultation-section{margin-bottom:120px;}
+.consultation-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.consultation-layout.reverse{direction:rtl;}
+.consultation-layout.reverse > *{direction:ltr;}
+.consultation-img{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);position:relative;}
+.consultation-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg, rgba(182,134,12,.12), transparent);pointer-events:none;}
+.consultation-img img{width:100%;height:auto;display:block;transition:transform .6s;}
+.consultation-img:hover img{transform:scale(1.05);}
+.consultation-content h3{font-family:var(--ff-display);font-size:36px;color:var(--maroon);margin-bottom:20px;font-weight:800;}
+.consultation-desc{font-size:16px;color:var(--ink-soft);line-height:1.8;margin-bottom:24px;}
+.benefits-list{margin-bottom:28px;}
+.benefit-item{display:flex;align-items:start;gap:12px;margin-bottom:12px;}
+.benefit-icon{font-size:20px;margin-top:2px;}
+.benefit-text{font-size:15px;color:var(--ink);}
+.consultation-meta{display:flex;gap:32px;margin-bottom:28px;flex-wrap:wrap;}
+.meta-item{display:flex;flex-direction:column;gap:4px;}
+.meta-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;}
+.meta-value{font-family:var(--ff-display);font-size:20px;color:var(--maroon);font-weight:700;}
+.divider-section{position:relative;height:400px;background-size:cover;background-position:center;background-attachment:fixed;display:flex;align-items:center;justify-content:center;}
+.divider-section::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg, rgba(17,20,43,.85), rgba(122,20,34,.75));}
+.divider-content{position:relative;z-index:2;color:var(--white);text-align:center;max-width:700px;padding:0 24px;}
+.divider-content h3{font-family:var(--ff-display);font-size:38px;font-weight:800;margin-bottom:16px;}
+.divider-content p{font-size:17px;color:#E9DEC9;margin-bottom:28px;line-height:1.8;}
+.guidance-banner{background:linear-gradient(135deg, var(--maroon-dark), var(--maroon));color:var(--white);border-radius:var(--radius-lg);padding:60px;text-align:center;margin-top:80px;}
+.guidance-banner h3{font-family:var(--ff-display);font-size:38px;font-weight:800;margin-bottom:16px;}
+.guidance-banner p{font-size:17px;color:#E9DEC9;margin-bottom:32px;}
+.guidance-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+footer{background:var(--black);color:#C9BFAE;padding:48px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:32px;}
+.footer-col h5{color:var(--gold-light);font-size:14px;font-weight:600;margin-bottom:16px;}
+.footer-links{display:flex;flex-direction:column;gap:10px;font-size:13px;}
+.footer-links a:hover{color:var(--gold-light);}
+.footer-bottom{text-align:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:#8A8071;}
+@media(max-width:980px){
+  .consultation-layout{grid-template-columns:1fr;}
+  .hero h1{font-size:36px;}
+  .featured-content h2{font-size:32px;}
+  .consultation-content h3{font-size:28px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <span class="mantra">‖ Om Kreem Kalikayei Namah ‖</span>
+    <div class="topbar-right">
+      <a href="https://wa.me/919876543210" class="topbar-link" style="color:var(--green-wa)">WhatsApp Us</a>
+      <a href="tel:+919876543210" class="topbar-link">+91 98765 43210</a>
+      <a href="index.html#booking-form" class="btn btn-fill">Book Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-name">AstroTantra<span class="accent">Hawan</span></span>
+      <span class="brand-tag">Vedic Astrology • Sacred Hawans • Tantra Guidance</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="hawans.html">Hawans</a>
+      <a href="consultations.html" class="active">Consultations</a>
+      <a href="index.html#tools">Free Tools</a>
+      <a href="index.html#webinars">Webinars</a>
+      <a href="index.html#pdfs">Sadhna PDFs</a>
+      <a href="index.html#blog">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="bannerhawan.jpg" alt="Spiritual Consultations" class="hero-bg">
+  <div class="hero-content">
+    <div class="eyebrow">PERSONALIZED SPIRITUAL GUIDANCE</div>
+    <h1>Transform Your Life with<br>Authentic Vedic Consultations</h1>
+    <p>One-on-one sessions with Pandit Anil Ji for clarity, solutions, and spiritual growth through time-tested ancient wisdom.</p>
+    <div class="hero-actions">
+      <a href="#featured" class="btn btn-fill">Book Consultation</a>
+      <a href="https://wa.me/919876543210" class="btn btn-gold">WhatsApp Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED CONSULTATION -->
+<section class="section">
+  <div class="container">
+    <div class="featured-consultation" id="featured">
+      <img src="Maha Tantra Hawan.jpg" alt="Vedic Astrology" class="featured-bg">
+      <div class="featured-content">
+        <span class="featured-badge">MOST BOOKED CONSULTATION</span>
+        <h2>Vedic Astrology Consultation</h2>
+        <p>Get complete life guidance through detailed birth chart analysis, planetary positions, doshas, and personalized remedies for career, marriage, health, and prosperity.</p>
+        <div style="display:flex;gap:16px;margin-top:8px;">
+          <a href="index.html#booking-form" class="btn btn-fill">Book Now</a>
+          <a href="https://wa.me/919876543210" class="btn btn-gold">WhatsApp</a>
+        </div>
+      </div>
+    </div>
