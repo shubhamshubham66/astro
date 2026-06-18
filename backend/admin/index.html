@@ -307,10 +307,46 @@ function loadPage(page) {
   // Add active to clicked item
   event.currentTarget.classList.add('active');
   
-  // Update content based on page
   const content = document.getElementById('mainContent');
-  content.innerHTML = `<div style="padding:40px;text-align:center;"><h2>${page.charAt(0).toUpperCase() + page.slice(1)} Module</h2><p style="color:var(--text-soft);margin-top:10px;">This module is under development. Full functionality coming soon.</p></div>`;
-}
+  
+  // Module content based on page
+  const modules = {
+    'bookings': `
+      <div class="page-header">
+        <h1 class="page-title">Booking Management</h1>
+        <p class="page-subtitle">Manage all hawan and consultation bookings</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-label">Total Bookings</div><div class="stat-value">156</div><div class="stat-change up">↑ 12 this week</div></div>
+        <div class="stat-card"><div class="stat-label">Pending</div><div class="stat-value">8</div><div class="stat-change">Awaiting approval</div></div>
+        <div class="stat-card"><div class="stat-label">Confirmed</div><div class="stat-value">124</div><div class="stat-change up">↑ 18%</div></div>
+        <div class="stat-card"><div class="stat-label">Completed</div><div class="stat-value">24</div><div class="stat-change up">This month</div></div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">All Bookings</h3>
+          <div style="display:flex;gap:10px;">
+            <select style="padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+              <option>All Status</option>
+              <option>Pending</option>
+              <option>Confirmed</option>
+              <option>Completed</option>
+            </select>
+            <button class="btn-small btn-primary">+ New Booking</button>
+          </div>
+        </div>
+        <table class="table">
+          <thead><tr><th>ID</th><th>Customer</th><th>Service</th><th>Date</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>#BK1234</td><td>Ramesh Sharma</td><td>Maha Tantra Hawan</td><td>25 May 2025</td><td>₹5,100</td><td><span class="badge badge-success">Confirmed</span></td><td><button class="btn-small btn-primary">View</button></td></tr>
+            <tr><td>#BK1235</td><td>Sunita Verma</td><td>Lal Mirch Hawan</td><td>26 May 2025</td><td>₹4,100</td><td><span class="badge badge-warning">Pending</span></td><td><button class="btn-small btn-primary">View</button></td></tr>
+            <tr><td>#BK1236</td><td>Vikram Joshi</td><td>Vedic Astrology</td><td>27 May 2025</td><td>₹2,500</td><td><span class="badge badge-success">Confirmed</span></td><td><button class="btn-small btn-primary">View</button></td></tr>
+            <tr><td>#BK1237</td><td>Priya Patel</td><td>Numerology</td><td>28 May 2025</td><td>₹2,100</td><td><span class="badge badge-success">Confirmed</span></td><td><button class="btn-small btn-primary">View</button></td></tr>
+            <tr><td>#BK1238</td><td>Amit Kumar</td><td>Vastu Consultation</td><td>29 May 2025</td><td>₹3,100</td><td><span class="badge badge-warning">Pending</span></td><td><button class="btn-small btn-primary">View</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    `,
 
 function logout() {
   if(confirm('Are you sure you want to logout?')) {
@@ -321,3 +357,276 @@ function logout() {
 
 </body>
 </html>
+
+
+    'hawans': `
+      <div class="page-header">
+        <h1 class="page-title">Hawan Management</h1>
+        <p class="page-subtitle">Manage all hawan services and pricing</p>
+      </div>
+      <div class="card" style="margin-bottom:20px;">
+        <div class="card-header">
+          <h3 class="card-title">Active Hawans</h3>
+          <button class="btn-small btn-primary">+ Add New Hawan</button>
+        </div>
+        <table class="table">
+          <thead><tr><th>Hawan Name</th><th>Price</th><th>Bookings</th><th>Status</th><th>Featured</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Maha Tantra Hawan</td><td>₹5,100</td><td>45</td><td><span class="badge badge-success">Active</span></td><td>✓</td><td><button class="btn-small btn-primary">Edit</button></td></tr>
+            <tr><td>Lal Mirch Shatru Nashak</td><td>₹4,100</td><td>38</td><td><span class="badge badge-success">Active</span></td><td>✓</td><td><button class="btn-small btn-primary">Edit</button></td></tr>
+            <tr><td>Shiv Shakti Kali Hawan</td><td>₹5,100</td><td>52</td><td><span class="badge badge-success">Active</span></td><td>✓</td><td><button class="btn-small btn-primary">Edit</button></td></tr>
+            <tr><td>Shatru Vijaya Hawan</td><td>₹4,100</td><td>41</td><td><span class="badge badge-success">Active</span></td><td>✓</td><td><button class="btn-small btn-primary">Edit</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    `,
+    'payments': `
+      <div class="page-header">
+        <h1 class="page-title">Payments & Invoices</h1>
+        <p class="page-subtitle">Track all transactions and revenue</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-label">Total Revenue</div><div class="stat-value">₹2,85,400</div><div class="stat-change up">↑ 18% this month</div></div>
+        <div class="stat-card"><div class="stat-label">Successful</div><div class="stat-value">156</div><div class="stat-change up">98.7%</div></div>
+        <div class="stat-card"><div class="stat-label">Pending</div><div class="stat-value">2</div><div class="stat-change">Awaiting payment</div></div>
+        <div class="stat-card"><div class="stat-label">Refunded</div><div class="stat-value">0</div><div class="stat-change">This month</div></div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Recent Transactions</h3>
+          <button class="btn-small btn-primary">Download Report</button>
+        </div>
+        <table class="table">
+          <thead><tr><th>Payment ID</th><th>Customer</th><th>Amount</th><th>Method</th><th>Date</th><th>Status</th><th>Invoice</th></tr></thead>
+          <tbody>
+            <tr><td>#PAY12345</td><td>Ramesh Sharma</td><td>₹5,100</td><td>Razorpay</td><td>18 May 2025</td><td><span class="badge badge-success">Success</span></td><td><button class="btn-small btn-primary">Download</button></td></tr>
+            <tr><td>#PAY12346</td><td>Sunita Verma</td><td>₹4,100</td><td>Razorpay</td><td>18 May 2025</td><td><span class="badge badge-success">Success</span></td><td><button class="btn-small btn-primary">Download</button></td></tr>
+            <tr><td>#PAY12347</td><td>Vikram Joshi</td><td>₹2,500</td><td>Razorpay</td><td>17 May 2025</td><td><span class="badge badge-success">Success</span></td><td><button class="btn-small btn-primary">Download</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    `,
+    'slots': `
+      <div class="page-header">
+        <h1 class="page-title">Slot Manager</h1>
+        <p class="page-subtitle">Manage consultation and hawan slots</p>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Available Slots - June 2025</h3>
+          <div style="display:flex;gap:10px;">
+            <button class="btn-small btn-primary">Block Date</button>
+            <button class="btn-small btn-primary">Set Holiday</button>
+          </div>
+        </div>
+        <div class="chart-container">📅 Calendar View - Slot Booking System</div>
+        <div style="margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+          <div style="padding:16px;background:var(--bg);border-radius:8px;">
+            <div style="font-size:13px;color:var(--text-soft);margin-bottom:4px;">Today's Slots</div>
+            <div style="font-size:24px;font-weight:700;">8 Booked</div>
+          </div>
+          <div style="padding:16px;background:var(--bg);border-radius:8px;">
+            <div style="font-size:13px;color:var(--text-soft);margin-bottom:4px;">Available Today</div>
+            <div style="font-size:24px;font-weight:700;">4 Open</div>
+          </div>
+          <div style="padding:16px;background:var(--bg);border-radius:8px;">
+            <div style="font-size:13px;color:var(--text-soft);margin-bottom:4px;">This Week</div>
+            <div style="font-size:24px;font-weight:700;">42 Total</div>
+          </div>
+        </div>
+      </div>
+    `,
+    'webinars': `
+      <div class="page-header">
+        <h1 class="page-title">Webinar Management</h1>
+        <p class="page-subtitle">Manage live webinars and registrations</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-label">Total Webinars</div><div class="stat-value">12</div><div class="stat-change">This year</div></div>
+        <div class="stat-card"><div class="stat-label">Upcoming</div><div class="stat-value">3</div><div class="stat-change up">Next 30 days</div></div>
+        <div class="stat-card"><div class="stat-label">Registrations</div><div class="stat-value">156</div><div class="stat-change up">↑ 24%</div></div>
+        <div class="stat-card"><div class="stat-label">Attendance Rate</div><div class="stat-value">78%</div><div class="stat-change up">Average</div></div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Upcoming Webinars</h3>
+          <button class="btn-small btn-primary">+ Create Webinar</button>
+        </div>
+        <table class="table">
+          <thead><tr><th>Title</th><th>Date & Time</th><th>Registrations</th><th>Zoom Link</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Maa Kali Sadhana Secrets</td><td>25 May 2025, 7:00 PM</td><td>42</td><td><button class="btn-small btn-primary">Generate</button></td><td><span class="badge badge-success">Published</span></td><td><button class="btn-small btn-primary">Edit</button></td></tr>
+            <tr><td>Baglamukhi Sadhana</td><td>01 June 2025, 7:00 PM</td><td>38</td><td><button class="btn-small btn-primary">Generate</button></td><td><span class="badge badge-success">Published</span></td><td><button class="btn-small btn-primary">Edit</button></td></tr>
+            <tr><td>Vastu Remedies</td><td>08 June 2025, 7:00 PM</td><td>24</td><td><button class="btn-small btn-primary">Generate</button></td><td><span class="badge badge-warning">Draft</span></td><td><button class="btn-small btn-primary">Edit</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    `,
+
+    'pdfs': `
+      <div class="page-header">
+        <h1 class="page-title">Sadhna PDF Management</h1>
+        <p class="page-subtitle">Manage digital Sadhna guides and sales</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-label">Total PDFs</div><div class="stat-value">3</div><div class="stat-change">Available</div></div>
+        <div class="stat-card"><div class="stat-label">Total Sales</div><div class="stat-value">156</div><div class="stat-change up">↑ 28%</div></div>
+        <div class="stat-card"><div class="stat-label">Revenue</div><div class="stat-value">₹38,400</div><div class="stat-change up">This month</div></div>
+        <div class="stat-card"><div class="stat-label">Downloads</div><div class="stat-value">142</div><div class="stat-change">Completed</div></div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">PDF Library</h3>
+          <button class="btn-small btn-primary">+ Upload New PDF</button>
+        </div>
+        <table class="table">
+          <thead><tr><th>PDF Title</th><th>Price</th><th>Sales</th><th>Revenue</th><th>Downloads</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Mantra Sadhna Guide</td><td>₹199</td><td>45</td><td>₹8,955</td><td>42</td><td><span class="badge badge-success">Active</span></td><td><button class="btn-small btn-primary">Edit</button></td></tr>
+            <tr><td>Tantra Sadhana Rahasya</td><td>₹299</td><td>68</td><td>₹20,332</td><td>64</td><td><span class="badge badge-success">Active</span></td><td><button class="btn-small btn-primary">Edit</button></td></tr>
+            <tr><td>Maa Kali Sadhana Paddhati</td><td>₹299</td><td>43</td><td>₹12,857</td><td>40</td><td><span class="badge badge-success">Active</span></td><td><button class="btn-small btn-primary">Edit</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    `,
+    'kundli': `
+      <div class="page-header">
+        <h1 class="page-title">Kundli Reports</h1>
+        <p class="page-subtitle">Manage paid kundli report orders</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-label">Total Orders</div><div class="stat-value">23</div><div class="stat-change up">This month</div></div>
+        <div class="stat-card"><div class="stat-label">Completed</div><div class="stat-value">18</div><div class="stat-change up">78%</div></div>
+        <div class="stat-card"><div class="stat-label">Pending</div><div class="stat-value">5</div><div class="stat-change">In progress</div></div>
+        <div class="stat-card"><div class="stat-label">Revenue</div><div class="stat-value">₹45,800</div><div class="stat-change up">↑ 15%</div></div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Kundli Orders</h3>
+          <button class="btn-small btn-primary">+ New Order</button>
+        </div>
+        <table class="table">
+          <thead><tr><th>Order ID</th><th>Customer</th><th>Birth Details</th><th>Date</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>#KUN001</td><td>Ramesh Sharma</td><td>15/08/1990, Delhi</td><td>18 May 2025</td><td>₹1,999</td><td><span class="badge badge-success">Completed</span></td><td><button class="btn-small btn-primary">Download</button></td></tr>
+            <tr><td>#KUN002</td><td>Priya Patel</td><td>22/03/1995, Mumbai</td><td>17 May 2025</td><td>₹1,999</td><td><span class="badge badge-warning">Pending</span></td><td><button class="btn-small btn-primary">Generate</button></td></tr>
+            <tr><td>#KUN003</td><td>Amit Kumar</td><td>10/12/1988, Bangalore</td><td>16 May 2025</td><td>₹1,999</td><td><span class="badge badge-success">Completed</span></td><td><button class="btn-small btn-primary">Download</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    `,
+
+    'blog': `
+      <div class="page-header">
+        <h1 class="page-title">Blog CMS</h1>
+        <p class="page-subtitle">Create and manage blog articles</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-label">Total Articles</div><div class="stat-value">3</div><div class="stat-change">Published</div></div>
+        <div class="stat-card"><div class="stat-label">Drafts</div><div class="stat-value">2</div><div class="stat-change">In progress</div></div>
+        <div class="stat-card"><div class="stat-label">Total Views</div><div class="stat-value">1,245</div><div class="stat-change up">↑ 18%</div></div>
+        <div class="stat-card"><div class="stat-label">Avg. Read Time</div><div class="stat-value">4 min</div><div class="stat-change">Per article</div></div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">All Articles</h3>
+          <button class="btn-small btn-primary">+ New Article</button>
+        </div>
+        <table class="table">
+          <thead><tr><th>Title</th><th>Category</th><th>Views</th><th>Published Date</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Lal Mirch Hawan: Benefits, Vidhi & Precautions</td><td>Hawan</td><td>524</td><td>18 May 2025</td><td><span class="badge badge-success">Published</span></td><td><button class="btn-small btn-primary">Edit</button></td></tr>
+            <tr><td>Shatru Vijaya Hawan – The Most Powerful Ritual</td><td>Hawan</td><td>412</td><td>15 May 2025</td><td><span class="badge badge-success">Published</span></td><td><button class="btn-small btn-primary">Edit</button></td></tr>
+            <tr><td>How Numerology Can Change Your Life?</td><td>Astrology</td><td>309</td><td>12 May 2025</td><td><span class="badge badge-success">Published</span></td><td><button class="btn-small btn-primary">Edit</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    `,
+    'testimonials': `
+      <div class="page-header">
+        <h1 class="page-title">Testimonials</h1>
+        <p class="page-subtitle">Manage customer reviews and ratings</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-label">Total Reviews</div><div class="stat-value">89</div><div class="stat-change up">↑ 12 new</div></div>
+        <div class="stat-card"><div class="stat-label">Average Rating</div><div class="stat-value">4.8★</div><div class="stat-change up">Excellent</div></div>
+        <div class="stat-card"><div class="stat-label">Pending Approval</div><div class="stat-value">3</div><div class="stat-change">To review</div></div>
+        <div class="stat-card"><div class="stat-label">Featured</div><div class="stat-value">6</div><div class="stat-change">On homepage</div></div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Recent Reviews</h3>
+          <select style="padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+            <option>All Reviews</option>
+            <option>Pending</option>
+            <option>Approved</option>
+            <option>Featured</option>
+          </select>
+        </div>
+        <table class="table">
+          <thead><tr><th>Customer</th><th>Rating</th><th>Review</th><th>Date</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Ramesh Sharma</td><td>5★</td><td>Attended Lal Mirch Hawan live on Zoom. The experience was divine...</td><td>18 May 2025</td><td><span class="badge badge-success">Approved</span></td><td><button class="btn-small btn-primary">Feature</button></td></tr>
+            <tr><td>Sunita Verma</td><td>5★</td><td>Booked Maha Tantra Hawan for my business. Anil Ji explained everything...</td><td>17 May 2025</td><td><span class="badge badge-success">Approved</span></td><td><button class="btn-small btn-primary">Feature</button></td></tr>
+            <tr><td>Vikram Joshi</td><td>5★</td><td>Numerology consultation gave me real clarity about my career path...</td><td>16 May 2025</td><td><span class="badge badge-warning">Pending</span></td><td><button class="btn-small btn-primary">Approve</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    `,
+    'whatsapp': `
+      <div class="page-header">
+        <h1 class="page-title">WhatsApp Manager</h1>
+        <p class="page-subtitle">Manage WhatsApp templates and automations</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-label">Messages Sent</div><div class="stat-value">1,245</div><div class="stat-change up">This month</div></div>
+        <div class="stat-card"><div class="stat-label">Delivery Rate</div><div class="stat-value">98.5%</div><div class="stat-change up">Excellent</div></div>
+        <div class="stat-card"><div class="stat-label">Failed</div><div class="stat-value">18</div><div class="stat-change">Need retry</div></div>
+        <div class="stat-card"><div class="stat-label">Templates</div><div class="stat-value">8</div><div class="stat-change">Active</div></div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">WhatsApp Templates</h3>
+          <button class="btn-small btn-primary">+ New Template</button>
+        </div>
+        <table class="table">
+          <thead><tr><th>Template Name</th><th>Category</th><th>Messages Sent</th><th>Delivery Rate</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Booking Confirmation</td><td>Transactional</td><td>156</td><td>99.2%</td><td><span class="badge badge-success">Active</span></td><td><button class="btn-small btn-primary">Test</button></td></tr>
+            <tr><td>Payment Success</td><td>Transactional</td><td>152</td><td>98.8%</td><td><span class="badge badge-success">Active</span></td><td><button class="btn-small btn-primary">Test</button></td></tr>
+            <tr><td>Webinar Reminder</td><td>Marketing</td><td>124</td><td>97.5%</td><td><span class="badge badge-success">Active</span></td><td><button class="btn-small btn-primary">Test</button></td></tr>
+            <tr><td>PDF Delivery</td><td>Transactional</td><td>142</td><td>99.1%</td><td><span class="badge badge-success">Active</span></td><td><button class="btn-small btn-primary">Test</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    `,
+    'settings': `
+      <div class="page-header">
+        <h1 class="page-title">Settings</h1>
+        <p class="page-subtitle">Manage admin settings and configurations</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+        <div class="card">
+          <h3 style="font-size:18px;font-weight:600;margin-bottom:20px;">Profile Settings</h3>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div><label style="font-size:14px;font-weight:600;display:block;margin-bottom:8px;">Name</label><input class="form-input" value="Anil Ji" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:6px;"></div>
+            <div><label style="font-size:14px;font-weight:600;display:block;margin-bottom:8px;">Email</label><input class="form-input" value="admin@astrotantrahawan.com" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:6px;"></div>
+            <div><label style="font-size:14px;font-weight:600;display:block;margin-bottom:8px;">Phone</label><input class="form-input" value="+91 99999 99999" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:6px;"></div>
+            <button class="btn-primary" style="width:100%;">Save Changes</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="font-size:18px;font-weight:600;margin-bottom:20px;">Security Settings</h3>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div><label style="font-size:14px;font-weight:600;display:block;margin-bottom:8px;">Current Password</label><input type="password" class="form-input" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:6px;"></div>
+            <div><label style="font-size:14px;font-weight:600;display:block;margin-bottom:8px;">New Password</label><input type="password" class="form-input" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:6px;"></div>
+            <div><label style="font-size:14px;font-weight:600;display:block;margin-bottom:8px;">Confirm Password</label><input type="password" class="form-input" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:6px;"></div>
+            <button class="btn-primary" style="width:100%;">Update Password</button>
+          </div>
+        </div>
+      </div>
+    `
+  };
+  
+  content.innerHTML = modules[page] || '<div style="padding:40px;text-align:center;"><h2>Module Not Found</h2></div>';
+}
