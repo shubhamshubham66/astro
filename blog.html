@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sadhna PDFs - Digital Library | AstroTantraHawan</title>
+<title>Spiritual Knowledge Blog | AstroTantraHawan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@500;600;700;800&family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -113,133 +113,120 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:700;line-height:1.2;color:
 
 
 /* ============ HERO BANNER ============ */
-.pdfs-hero{
-  background:linear-gradient(140deg, var(--maroon-dark), var(--maroon));
+.blog-hero{
+  background:linear-gradient(135deg, var(--navy-2), var(--navy));
   color:var(--white);
   padding:80px 0;
   position:relative;
   overflow:hidden;
 }
-.pdfs-hero::before{
+.blog-hero::before{
   content:'';position:absolute;inset:0;
   background:
-    radial-gradient(circle at 20% 30%, rgba(217,180,90,.35), transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(182,134,12,.25), transparent 55%);
+    radial-gradient(circle at 25% 35%, rgba(182,134,12,.3), transparent 50%),
+    radial-gradient(circle at 75% 65%, rgba(122,20,34,.25), transparent 55%);
 }
 .hero-inner{
-  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2;
-}
-.hero-content h1{font-size:42px;color:var(--white);margin-bottom:18px;}
-.hero-content p{font-size:17px;color:#E9DEC9;line-height:1.7;max-width:520px;}
-.hero-content .btn{margin-top:28px;}
-.hero-books{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
-}
-.hero-book-card{
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(8px);
-  border:1px solid rgba(217,180,90,.25);
-  border-radius:var(--radius-md);
-  padding:32px 20px;
-  display:flex;flex-direction:column;align-items:center;gap:14px;
+  position:relative;z-index:2;
   text-align:center;
-  transition:all .3s;
+  max-width:720px;
+  margin:0 auto;
 }
-.hero-book-card:hover{
-  background:rgba(217,180,90,.15);
-  transform:translateY(-6px);
-}
-.hero-book-card .icon{
-  width:64px;height:64px;border-radius:50%;
-  background:rgba(217,180,90,.2);
-  display:flex;align-items:center;justify-content:center;
-}
-.hero-book-card .icon svg{width:28px;height:28px;color:var(--gold-light);}
-.hero-book-card h4{font-size:15px;color:var(--gold-light);}
-.hero-book-card .price{font-size:18px;font-weight:700;color:var(--white);}
+.hero-inner h1{font-size:42px;color:var(--white);margin-bottom:18px;}
+.hero-inner p{font-size:17px;color:#D8CFBD;line-height:1.7;}
 
-/* ============ LIBRARY SHELF ============ */
-.library-section{padding:80px 0;background:var(--cream-2);}
+/* ============ FEATURED ARTICLE ============ */
+.featured-section{padding:80px 0;background:var(--cream);}
+.featured-article{
+  background:linear-gradient(135deg, var(--maroon), var(--maroon-dark));
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:420px;
+  position:relative;
+}
+.featured-article::before{
+  content:'';position:absolute;inset:0;
+  background:conic-gradient(from 45deg, rgba(217,180,90,.25) 0 25%, transparent 0 50%);
+  background-size:22px 22px;
+  opacity:.35;
+}
+.featured-left{
+  padding:56px;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;z-index:2;
+  color:var(--white);
+}
+.featured-left .eyebrow{color:var(--gold-light);margin-bottom:14px;}
+.featured-left h2{font-size:32px;color:var(--white);margin-bottom:16px;line-height:1.3;}
+.featured-left p{font-size:15px;color:#E9DEC9;line-height:1.7;margin-bottom:10px;}
+.featured-meta{display:flex;align-items:center;gap:12px;font-size:13px;color:#D8CFBD;margin-bottom:24px;}
+.featured-left .btn{background:var(--gold);padding:14px 28px;}
+.featured-right{
+  background:rgba(0,0,0,.2);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.featured-visual{
+  width:180px;height:180px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(217,180,90,.4), transparent 70%);
+  display:flex;align-items:center;justify-content:center;
+  animation:pulseGlow 3s ease-in-out infinite;
+}
+@keyframes pulseGlow{0%,100%{transform:scale(.94);}50%{transform:scale(1.06);}}
+.featured-visual svg{width:76px;height:76px;color:rgba(255,255,255,.92);}
+
+/* ============ ARTICLES GRID ============ */
+.articles-section{padding:80px 0;background:var(--cream-2);}
+
 .section-head{text-align:center;margin-bottom:48px;}
 .section-head h2{font-size:34px;margin-bottom:12px;}
 .section-head p{font-size:16px;color:var(--ink-soft);}
-
-.pdf-shelf{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:32px;
+.articles-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:32px;
 }
-.pdf-book{
+.article-card{
   background:var(--white);
   border:1px solid rgba(122,20,34,.12);
   border-radius:var(--radius-lg);
   overflow:hidden;
-  transition:all .3s ease;
-  display:flex;flex-direction:column;
+  transition:all .3s;
 }
-.pdf-book:hover{
+.article-card:hover{
   border-color:var(--gold);
-  transform:translateY(-8px);
-  box-shadow:0 20px 40px -20px rgba(20,8,4,.25);
+  transform:translateY(-6px);
+  box-shadow:0 20px 35px -18px rgba(20,8,4,.2);
 }
-.pdf-cover{
-  height:320px;
-  background:linear-gradient(135deg, var(--maroon-dark), var(--navy-2));
+.article-thumb{
+  height:240px;
+  background:linear-gradient(135deg, var(--navy-2), var(--maroon-dark));
   position:relative;
   display:flex;align-items:center;justify-content:center;
 }
-.pdf-cover::before{
+.article-thumb::before{
   content:'';position:absolute;inset:0;
   background:conic-gradient(from 45deg, rgba(217,180,90,.3) 0 25%, transparent 0 50%);
-  background-size:20px 20px;
+  background-size:18px 18px;
   opacity:.4;
 }
-.pdf-cover .icon{
+.article-thumb .icon{
   position:relative;z-index:2;
-  width:88px;height:88px;
+  width:72px;height:72px;
   border-radius:50%;
-  background:rgba(217,180,90,.25);
+  background:rgba(217,180,90,.2);
   display:flex;align-items:center;justify-content:center;
 }
-.pdf-cover .icon svg{width:42px;height:42px;color:var(--gold-light);}
-.pdf-info{
-  padding:28px 24px;
-  display:flex;flex-direction:column;gap:12px;
-  flex:1;
+.article-thumb .icon svg{width:36px;height:36px;color:var(--gold-light);}
+.article-content{padding:28px 24px;}
+.article-meta{
+  display:flex;align-items:center;gap:10px;
+  font-size:12.5px;color:var(--ink-soft);
+  margin-bottom:12px;
 }
-.pdf-info h3{font-size:20px;font-weight:700;}
-.pdf-info .desc{font-size:14px;color:var(--ink-soft);line-height:1.6;flex:1;}
-.pdf-info .meta{display:flex;justify-content:space-between;align-items:center;margin-top:auto;}
-.pdf-info .price{font-size:22px;font-weight:700;color:var(--maroon);}
-.pdf-info .btn{width:100%;justify-content:center;margin-top:14px;}
-
-/* ============ BENEFITS SECTION ============ */
-.benefits-section{padding:80px 0;background:var(--cream);}
-.benefits-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px;
-}
-
-.benefit-card{
-  background:var(--white);
-  border:1px solid rgba(122,20,34,.12);
-  border-radius:var(--radius-md);
-  padding:32px 28px;
-  text-align:center;
-  transition:all .3s;
-}
-.benefit-card:hover{
-  border-color:var(--gold);
-  box-shadow:var(--shadow-card);
-}
-.benefit-card .icon{
-  width:68px;height:68px;margin:0 auto 18px;
-  border-radius:50%;
-  background:var(--cream-2);
-  display:flex;align-items:center;justify-content:center;
-}
-.benefit-card .icon svg{width:30px;height:30px;color:var(--maroon);}
-.benefit-card h4{font-size:18px;margin-bottom:10px;}
-.benefit-card p{font-size:14px;color:var(--ink-soft);line-height:1.6;}
+.article-content h3{font-size:20px;margin-bottom:12px;}
+.article-content p{font-size:14px;color:var(--ink-soft);line-height:1.6;margin-bottom:18px;}
+.article-content .btn{width:100%;justify-content:center;}
 
 /* ============ FOOTER ============ */
 footer{background:var(--black);color:#C9BFAE;padding:48px 0 24px;position:relative;}
@@ -264,16 +251,13 @@ footer::before{
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:980px){
-  .hero-inner{grid-template-columns:1fr;gap:40px;}
-  .hero-books{grid-template-columns:repeat(3,1fr);}
-  .pdf-shelf{grid-template-columns:repeat(2,1fr);}
-  .benefits-grid{grid-template-columns:repeat(2,1fr);}
+  .featured-article{grid-template-columns:1fr;}
+  .featured-left{padding:42px 32px;}
+  .featured-right{min-height:260px;}
+  .articles-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:760px){
-  .hero-books{grid-template-columns:1fr;}
-  .pdf-shelf{grid-template-columns:1fr;}
-  .benefits-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;}
 }
 </style>
@@ -287,16 +271,13 @@ footer::before{
 <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.7 3.6.7.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.7 3.6.1.3 0 .7-.2 1l-2.4 2.2z"/></symbol>
 <symbol id="i-mail" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm17 3.2-7.4 5.3a1 1 0 0 1-1.2 0L4 8.2V18h16V8.2zM4.4 6l7.6 5.4L19.6 6H4.4z"/></symbol>
 <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c-4.4 0-8 3.6-8 8 0 5.5 6.6 11 8 12.5C13.4 21 20 15.5 20 10c0-4.4-3.6-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></symbol>
-<symbol id="i-om" viewBox="0 0 24 24"><path fill="currentColor" d="M7.7 10.4c1.6 0 2.6 1.1 2.6 2.5 0 1.6-1.3 2.7-2.8 2.7-1.3 0-2.4-.8-2.7-2l1.5-.4c.1.6.6 1 1.2 1 .7 0 1.2-.5 1.2-1.2 0-.7-.5-1.2-1.3-1.2-.3 0-.6.1-.8.3l-1-.8 2.3-2.5H4.9V7.4h5.6v1.3l-2.3 2.5c.2-.1.4-.1.5.2zM14 7c-1.6 0-2.7 1.1-2.7 2.6 0 1.1.6 1.9 1.5 2.3-1.1.4-1.9 1.3-1.9 2.6 0 1.7 1.4 2.9 3.1 2.9 1.8 0 3.1-1.2 3.1-2.9 0-1.3-.8-2.2-1.9-2.6.9-.4 1.5-1.2 1.5-2.3C16.7 8.1 15.6 7 14 7zm0 1.5c.7 0 1.2.5 1.2 1.2s-.5 1.2-1.2 1.2-1.2-.5-1.2-1.2.5-1.2 1.2-1.2zm0 4.1c.9 0 1.6.6 1.6 1.5s-.7 1.5-1.6 1.5-1.6-.6-1.6-1.5.7-1.5 1.6-1.5zM19.5 12c0-.6.4-1 1-1s1 .4 1 1-1.8 3.3-1.8 3.3S19.5 12.6 19.5 12z"/></symbol>
+<symbol id="i-chilli" viewBox="0 0 24 24"><path fill="currentColor" d="M5 4c1.7 0 2.6 1.3 2.4 2.8 2.4-.7 5.6.4 7.5 2.3 2.7 2.7 3.2 6.8 1.1 8.9-2.1 2.1-6.2 1.6-8.9-1.1-1.9-1.9-3-5.1-2.3-7.5C3.3 9.6 2 8.7 2 7c0-1.7 1.5-3 3-3z"/></symbol>
 <symbol id="i-trishul" viewBox="0 0 24 24"><path fill="currentColor" d="M11 2h2v6.3c1-.9 2.4-1.3 3.5-.6 1.3.8 1.6 2.5.7 3.8-.6.9-1.6 1.3-2.6 1.2.2.4.4.9.4 1.3v8h-2v-8c0-.5.1-.9.4-1.3-1 .1-2-.3-2.6-1.2-.9-1.3-.6-3 .7-3.8 1.1-.7 2.5-.3 3.5.6V2z"/></symbol>
-<symbol id="i-kali" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.5-1.7 3.4.6.2 1.1.6 1.5 1.1 1.4-.4 2.7.1 3.4 1.3.8 1.3.5 2.9-.6 3.8.6.9.6 2.1-.1 3-1 1.3-2.9 1.4-4 .3-.9 1-2.4 1.3-3.6.7-.4 1.1-1.4 1.9-2.6 1.9-1.2 0-2.2-.8-2.6-1.9-1.2.6-2.6.3-3.6-.7-1.1 1.1-3 1-4-.3-.7-.9-.7-2.1-.1-3-1.1-.9-1.4-2.5-.6-3.8.7-1.2 2-1.7 3.4-1.3.4-.5.9-.9 1.5-1.1C8.8 8.5 8 7.5 8 6a4 4 0 0 1 4-4z"/></symbol>
-<symbol id="i-download" viewBox="0 0 24 24"><path fill="currentColor" d="M13 5v10.6l3.3-3.3 1.4 1.4L12 19.4l-5.7-5.7 1.4-1.4L11 15.6V5h2zM4 19h16v2H4v-2z"/></symbol>
-<symbol id="i-book" viewBox="0 0 24 24"><path fill="currentColor" d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h12V4H6zm2 2h8v2H8V6zm0 4h8v2H8v-2zm0 4h5v2H8v-2z"/></symbol>
-<symbol id="i-check" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></symbol>
+<symbol id="i-numbers" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h6v6H4V4zm10 0h6v6h-6V4zM4 14h6v6H4v-6zm10 0h6v6h-6v-6z"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3V2zm-2 7v11h14V9H5z"/></symbol>
 <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="currentColor" d="M4 11h13.2l-4-4.2 1.4-1.4L21 12l-6.4 6.6-1.4-1.4 4-4.2H4v-2z"/></symbol>
 </defs>
 </svg>
-
 
 <!-- ============ TOPBAR ============ -->
 <div class="topbar">
@@ -325,8 +306,8 @@ footer::before{
         <li><a href="consultations.html">Consultations</a></li>
         <li><a href="freetools.html">Free Tools</a></li>
         <li><a href="resources.html#webinars">Webinars</a></li>
-        <li><a href="sadhnapdfs.html" class="active">Sadhna PDFs</a></li>
-        <li><a href="resources.html#blog">Blog</a></li>
+        <li><a href="sadhnapdfs.html">Sadhna PDFs</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
@@ -335,139 +316,78 @@ footer::before{
   </div>
 </header>
 
+
 <!-- ============ HERO BANNER ============ -->
-<section class="pdfs-hero">
+<section class="blog-hero">
   <div class="container hero-inner">
-    <div class="hero-content">
-      <span class="eyebrow">DIGITAL SPIRITUAL LIBRARY</span>
-      <h1>Sadhna PDFs</h1>
-      <p>Access premium spiritual knowledge through our carefully curated digital library. Download authentic Sadhna guides prepared by experienced practitioners, covering Mantra Sadhana, Tantra practices, and powerful deity worship methods.</p>
-      <a href="#library" class="btn btn-gold">Explore Library <svg style="width:14px;height:14px"><use href="#i-arrow"/></svg></a>
-    </div>
-    <div class="hero-books">
-      <div class="hero-book-card">
-        <span class="icon"><svg><use href="#i-om"/></svg></span>
-        <h4>Mantra Guides</h4>
-        <span class="price">₹199</span>
+    <span class="eyebrow">SPIRITUAL KNOWLEDGE HUB</span>
+    <h1>Spiritual Knowledge Blog</h1>
+    <p>Explore authentic articles on Vedic Astrology, Sacred Hawans, Tantra Practices, and Spiritual Remedies. Learn ancient wisdom from experienced practitioners and discover powerful rituals for transformation.</p>
+  </div>
+</section>
+
+<!-- ============ FEATURED ARTICLE ============ -->
+<section class="featured-section">
+  <div class="container">
+    <div class="featured-article">
+      <div class="featured-left">
+        <span class="eyebrow">FEATURED ARTICLE</span>
+        <h2>Lal Mirch Hawan: Benefits, Vidhi & Precautions</h2>
+        <p>Discover the powerful red chilli hawan ritual for protection against enemies and negative energies. Learn the complete procedure, benefits, and safety precautions for performing this sacred fire ritual.</p>
+        <div class="featured-meta">
+          <svg style="width:14px;height:14px"><use href="#i-calendar"/></svg>
+          <span>May 18, 2025</span>
+        </div>
+        <a href="#" class="btn">Read Full Article <svg style="width:14px;height:14px"><use href="#i-arrow"/></svg></a>
       </div>
-      <div class="hero-book-card">
-        <span class="icon"><svg><use href="#i-trishul"/></svg></span>
-        <h4>Tantra Texts</h4>
-        <span class="price">₹299</span>
-      </div>
-      <div class="hero-book-card">
-        <span class="icon"><svg><use href="#i-kali"/></svg></span>
-        <h4>Deity Sadhana</h4>
-        <span class="price">₹299</span>
+      <div class="featured-right">
+        <div class="featured-visual">
+          <svg><use href="#i-chilli"/></svg>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PDF LIBRARY ============ -->
-<section class="library-section" id="library">
+<!-- ============ ARTICLES GRID ============ -->
+<section class="articles-section">
   <div class="container">
     <div class="section-head">
-      <h2>Premium Sadhna Guides</h2>
-      <p>Authentic spiritual knowledge from ancient Vedic and Tantric traditions</p>
+      <h2>Latest Articles</h2>
+      <p>Authentic spiritual knowledge from ancient traditions</p>
     </div>
     
-    <div class="pdf-shelf">
-      <!-- Mantra Sadhna Guide -->
-      <div class="pdf-book">
-        <div class="pdf-cover">
-          <span class="icon"><svg><use href="#i-om"/></svg></span>
-        </div>
-        <div class="pdf-info">
-          <h3>Mantra Sadhna Guide</h3>
-          <p class="desc">Complete guide to powerful Vedic mantras including pronunciation, meanings, proper rituals, and timings. Learn authentic chanting techniques and understand the spiritual science behind each mantra.</p>
-          <div class="meta">
-            <span class="price">₹199</span>
-            <span style="font-size:13px;color:var(--ink-soft)">PDF Guide</span>
-          </div>
-          <a href="#" class="btn btn-gold"><svg style="width:14px;height:14px"><use href="#i-download"/></svg> Download Now</a>
-        </div>
-      </div>
-
-      <!-- Tantra Sadhana Rahasya -->
-      <div class="pdf-book">
-        <div class="pdf-cover">
+    <div class="articles-grid">
+      <!-- Shatru Vijaya Hawan -->
+      <div class="article-card">
+        <div class="article-thumb">
           <span class="icon"><svg><use href="#i-trishul"/></svg></span>
         </div>
-        <div class="pdf-info">
-          <h3>Tantra Sadhana Rahasya</h3>
-          <p class="desc">Comprehensive Tantra practice manual covering advanced techniques, deity worship methods, secret mantras, and initiation procedures. Includes safety guidelines and spiritual discipline requirements.</p>
-          <div class="meta">
-            <span class="price">₹299</span>
-            <span style="font-size:13px;color:var(--ink-soft)">PDF Guide</span>
+        <div class="article-content">
+          <div class="article-meta">
+            <svg style="width:14px;height:14px"><use href="#i-calendar"/></svg>
+            <span>May 15, 2025</span>
           </div>
-          <a href="#" class="btn btn-gold"><svg style="width:14px;height:14px"><use href="#i-download"/></svg> Download Now</a>
+          <h3>Shatru Vijaya Hawan – The Most Powerful Ritual</h3>
+          <p>Unlock the secrets of Shatru Vijaya Hawan, the most powerful Vedic fire ritual for overcoming enemies, removing obstacles, and achieving victory in legal matters and competitions.</p>
+          <a href="#" class="btn btn-outline">Read Article <svg style="width:14px;height:14px"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
 
-      <!-- Maa Kali Sadhana Paddhati -->
-      <div class="pdf-book">
-        <div class="pdf-cover">
-          <span class="icon"><svg><use href="#i-kali"/></svg></span>
+      <!-- Numerology Article -->
+      <div class="article-card">
+        <div class="article-thumb">
+          <span class="icon"><svg><use href="#i-numbers"/></svg></span>
         </div>
-        <div class="pdf-info">
-          <h3>Maa Kali Sadhana Paddhati</h3>
-          <p class="desc">Sacred guide to Maa Kali worship including powerful Kali mantras, puja vidhi, offerings, and meditation techniques. Complete instructions for daily practice and special occasions like Kali Puja.</p>
-          <div class="meta">
-            <span class="price">₹299</span>
-            <span style="font-size:13px;color:var(--ink-soft)">PDF Guide</span>
+        <div class="article-content">
+          <div class="article-meta">
+            <svg style="width:14px;height:14px"><use href="#i-calendar"/></svg>
+            <span>May 12, 2025</span>
           </div>
-          <a href="#" class="btn btn-gold"><svg style="width:14px;height:14px"><use href="#i-download"/></svg> Download Now</a>
+          <h3>How Numerology Can Change Your Life?</h3>
+          <p>Explore the ancient science of numerology and discover how your name and birth date reveal hidden patterns, personality traits, and life path guidance for better decision making.</p>
+          <a href="#" class="btn btn-outline">Read Article <svg style="width:14px;height:14px"><use href="#i-arrow"/></svg></a>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============ BENEFITS SECTION ============ -->
-<section class="benefits-section">
-  <div class="container">
-    <div class="section-head">
-      <h2>Why Choose Our Sadhna PDFs?</h2>
-      <p>Authentic spiritual knowledge backed by traditional expertise</p>
-    </div>
-    
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <div class="icon"><svg><use href="#i-book"/></svg></div>
-        <h4>Authentic Content</h4>
-        <p>All guides prepared by experienced Tantra and Vedic practitioners with years of spiritual practice and traditional lineage.</p>
-      </div>
-
-      <div class="benefit-card">
-        <div class="icon"><svg><use href="#i-check"/></svg></div>
-        <h4>Step-by-Step Instructions</h4>
-        <p>Clear, detailed instructions with proper pronunciation guides, ritual procedures, and timing recommendations for maximum effectiveness.</p>
-      </div>
-
-      <div class="benefit-card">
-        <div class="icon"><svg><use href="#i-download"/></svg></div>
-        <h4>Instant Download</h4>
-        <p>Get immediate access to your purchased PDF guides. Download to any device and access offline anytime, anywhere.</p>
-      </div>
-
-      <div class="benefit-card">
-        <div class="icon"><svg><use href="#i-om"/></svg></div>
-        <h4>Sanskrit with Translations</h4>
-        <p>Original Sanskrit mantras with accurate transliterations, English translations, and detailed meanings for deeper understanding.</p>
-      </div>
-
-      <div class="benefit-card">
-        <div class="icon"><svg><use href="#i-kali"/></svg></div>
-        <h4>Safety Guidelines</h4>
-        <p>Comprehensive precautions, do's and don'ts, and spiritual discipline requirements to ensure safe and effective practice.</p>
-      </div>
-
-      <div class="benefit-card">
-        <div class="icon"><svg><use href="#i-trishul"/></svg></div>
-        <h4>Lifetime Access</h4>
-        <p>One-time purchase gives you permanent access. No subscriptions, no recurring fees. Keep your spiritual guides forever.</p>
       </div>
     </div>
   </div>
