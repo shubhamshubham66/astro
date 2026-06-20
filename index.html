@@ -70,13 +70,13 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:700;line-height:1.2;color:
   height: 7px;
   background: conic-gradient(from 45deg, var(--gold) 0 25%, transparent 0 50%);
   background-size: 14px 14px;
-  z-index: 3;
+  z-index: 1;
 }
 
 /* Top Brand Section */
 .hero-brand {
   text-align: center;
-  padding: 100px 20px 40px;
+  padding: 120px 20px 40px;
   position: relative;
   z-index: 2;
 }
@@ -361,33 +361,27 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:700;line-height:1.2;color:
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(11, 10, 9, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(182, 134, 12, 0.3);
-  padding: 12px 0;
-  z-index: 100;
-  animation: slideDown 0.6s ease-out;
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
-  }
+  width: 100%;
+  background: rgba(11, 10, 9, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid rgba(182, 134, 12, 0.5);
+  padding: 16px 0;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .top-nav .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 10000;
 }
 
 .nav-logo {
   font-family: var(--ff-luxury);
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 800;
   color: var(--white);
   letter-spacing: 0.02em;
 }
